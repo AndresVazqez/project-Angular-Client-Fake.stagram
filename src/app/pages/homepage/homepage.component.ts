@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterStatus } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
+  public statusRegistered = ''
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public SetStatusRegistered(event: RegisterStatus){
+
+    this.statusRegistered = event.status;
+    console.log("hola")
   }
 
 }

@@ -1,13 +1,25 @@
 <p>SignUP</p>
 <div>
     <h4>Registration </h4>
-    <form action="">
+    <form class="form"  [formGroup]="registerForm" (ngSubmit)="registerUser()">
         <label for="image">Imagen</label>
-        <input type="file" name="image" id="image" >
+        <input formControlName="image" type="file" name="image">
+
         <label for="name">Name</label>
-        <input type="text" for="name">
+        <input formControlName="name" type="text" name="name" >
+
+        <label for="lastname" >Lastname</label>
+        <input formControlName="lastname" type="text" name="lastname">
+
+        <label for="username">Username</label>
+        <input formControlName="username" type="text" name="username" >
+      
         <label for="email">Email</label>
-        <input type="email" name="email">   
+        <input formControlName="email" type="email" name="email"> 
+
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" name="password"> 
+
         <input type="submit" value="SINGUP">  
     </form>
 </div>

@@ -9,6 +9,9 @@ import { NavigatorComponent } from './core/components/navigator/navigator.compon
 import { LoginComponent } from './core/components/login/login.component';
 import { RegisterComponent } from './core/components/register/register.component';
 import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './core/services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,14 +22,19 @@ import { RegisterpageComponent } from './pages/registerpage/registerpage.compone
     NavigatorComponent,
     LoginComponent,
     RegisterComponent,
-    RegisterpageComponent
+    RegisterpageComponent,
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

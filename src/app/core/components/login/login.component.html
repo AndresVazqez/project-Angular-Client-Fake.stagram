@@ -1,11 +1,11 @@
 <p>Bienvenido</p>
 
 <div>
-    <form action="">
+    <form [formGroup]="signinForm" (ngSubmit)="loginUser()">
         <label for="email" type="email">Email</label>
-        <input name="email" type="text">
+        <input  formControlName="email" type="text">
         <label for="password" type="password">Password</label>
-        <input name="password" type="text">
+        <input formControlName="password" name="password" type="text">
         <button type="submit">LOGIN</button>        
     </form>   
 </div>
