@@ -56,6 +56,7 @@ export class UserService {
     return this.http.post<any>(`${this.endPoint}/login`, user)
     .subscribe((res: any) => {
       localStorage.setItem('token:', res);
+      this.router.navigate(['about'])
     })
   }
 

@@ -1,11 +1,34 @@
-<p>Bienvenido</p>
+<div class="c-login">
 
-<div>
-    <form [formGroup]="signinForm" (ngSubmit)="loginUser()">
+    <div class="c-login__lang">
+        <label for="">Español (España)</label>
+    </div>
+    <div class="c-login__logo">
+        <img src="{{logoInsta.src}}" alt="{{logoInsta}}">
+    </div>
+    <div class="c-login__btnfb">
+        <button>
+            <a href=""><img src="{{logoFb.src}}" alt="{{logoFb.alt}}">{{btnName}}</a>
+        </button>
+    </div>
+    <div class="c-login__or">
+        <div></div>
+        <span>O</span>
+        <div></div>
+    </div>
+    <form class="c-login__form" [formGroup]="signinForm" (ngSubmit)="loginUser()">
         <label for="email" type="email">Email</label>
-        <input  formControlName="email" type="text">
+        <input formControlName="email" type="text" placeholder="Usuario o Correo electrónico">
         <label for="password" type="password">Password</label>
-        <input formControlName="password" name="password" type="password">
-        <button type="submit">LOGIN</button>        
-    </form>   
+        <input formControlName="password" name="password" type="password" placeholder="Contraseña">
+
+        <div class="c-login__form--resetpass">
+            <a href="">¿Has olvidado la contraseña?</a>
+        </div>
+        <button type="submit" [disabled]="loginOk">Iniciar sesión</button>
+    </form>
+    <div class="c-login__footer">
+        <span>from</span>
+        <img src="{{logoMeta.src}}" alt="{{logoMeta.alt}}">
+    </div>
 </div>
