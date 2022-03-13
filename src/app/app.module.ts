@@ -12,6 +12,7 @@ import { RegisterpageComponent } from './pages/registerpage/registerpage.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { OnboardingComponent } from './core/components/onboarding/onboarding.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     RegisterpageComponent,
+    OnboardingComponent,
    
   ],
   imports: [
@@ -33,8 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   providers: [
-    UserService
+    UserService,    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }

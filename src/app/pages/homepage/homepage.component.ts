@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterStatus } from 'src/app/core/models/user';
+import { RegisterStatus } from 'src/app/core/models/models';
 
 @Component({
   selector: 'app-homepage',

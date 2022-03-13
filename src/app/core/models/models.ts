@@ -12,3 +12,13 @@ export interface RegisterStatus {
 
     status: 'login' | 'signup' | '';
 }
+
+export interface Image {
+
+    src:string,
+    alt: string
+}
+export interface Button {
+
+    name:string
+}

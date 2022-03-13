@@ -1,7 +1,8 @@
-<p>SignUP</p>
+
 <div>
     <h4>Registration </h4>
-    <form class="form"  [formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
         <label for="image">Imagen</label>
         <input formControlName="image" type="file" name="image">
 
@@ -18,9 +19,12 @@
         <input formControlName="email" type="email" name="email"> 
 
         <label for="password">Password</label>
-        <input formControlName="password" type="password" name="password"> 
+        <input formControlName="password" type="password" name="password">
+        
+        <div *ngIf="errorServer"><span>{{errorServer}}</span></div>
 
         <input type="submit" value="SINGUP">  
     </form>
+    
 </div>
 
