@@ -121,7 +121,7 @@
             }
         }
 
-        button{
+        .button{
             
             width: 100%;            
             border: none;
@@ -137,6 +137,23 @@
                 background: rgb(116, 193, 245);
 
             }  
+        }
+        .buttondisable{
+            
+            width: 100%;            
+            border: none;
+            background: $color-btn-blue-disable;
+            padding: 6px;
+            border-radius: 3px;
+            color: #ffff;
+            font-weight: 600;
+            margin: 20px 0;
+            
+            &:active {
+
+                background: rgb(116, 193, 245);
+
+            }
         }  
     }
 

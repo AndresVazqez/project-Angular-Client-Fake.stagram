@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+//Necesarias para construir el formulario. 
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Image } from '../../models/models';
 import { UserService } from '../../services/user.service';
@@ -14,20 +15,20 @@ export class LoginComponent implements OnInit {
   public signinForm: FormGroup;
   public btnName:string;
   public logoFb: Image;
-  public logoInsta: Image;
-  public loginOk: boolean;
+  public logoInsta: Image;  
   public logoMeta:Image;
+  public errorServer:string = '';
 
 
 
   constructor(
-    public fb: FormBuilder,
+    public formBuilder: FormBuilder,
     public router: Router,
     public userService: UserService
   ) { 
-    this.signinForm = this.fb.group({
-      email:[''],
-      password:['']
+    this.signinForm = this.formBuilder.group({
+      email:['',[Validators.required, Validators.email, Validators.minLength(1)]],
+      password:['',[Validators.required, Validators.maxLength(20), Validators.minLength(6)]]
     }) ;
     
     this.btnName= "Continuar con Facebook"
@@ -42,17 +43,34 @@ export class LoginComponent implements OnInit {
     this.logoMeta = {
       src:"https://i.ibb.co/YPQHs2F/meta-logo.png",
       alt:"logo meta"
-    }
-
-    this.loginOk = false;
+    }  
 
   }
 
   ngOnInit(): void {
   }
+  public setError (error:string) {
 
-  public loginUser(): void {
-    this.userService.signIn(this.signinForm.value)
+    if(error === 'User not found'){
+      
+     this.errorServer = "Usuario no encontrado";
+
+    } if ( error === 'invalid password') {
+
+      this.errorServer = "Contraseña invalida";
+    }
+    
+
   }
 
+  public loginUser(): void {    
+    
+    if(this.signinForm.valid){      
+      let dataUser = this.signinForm.value;
+      this.userService.signIn(dataUser).subscribe((res: any) => {             
+        localStorage.setItem('token:', res);
+        this.router.navigate(['about'])  
+    }, (err)=>{ this.setError(err) })          
+    }
+  }
 }

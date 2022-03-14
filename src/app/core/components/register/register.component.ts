@@ -65,8 +65,8 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerUser() {
-    let dataUser = this.registerForm.value
-    console.log(dataUser)
+
+    let dataUser = this.registerForm.value    
     this.authService.signUp(dataUser)
       .subscribe((res) => {
         console.log(res)

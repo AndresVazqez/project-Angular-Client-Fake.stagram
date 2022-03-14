@@ -48,16 +48,16 @@ export class UserService {
   public signUp (user: User): Observable<any> {
 
     let url = `${this.endPoint}`;
-    return this.http.post(url, user).pipe(catchError(this.handleError) )
+    return this.http.post(url, user)
+    .pipe(catchError(this.handleError) )
   }
 
   public signIn(user: User){
     
     return this.http.post<any>(`${this.endPoint}/login`, user)
-    .subscribe((res: any) => {
-      localStorage.setItem('token:', res);
-      this.router.navigate(['about'])
-    })
+    .pipe(catchError(this.handleError))
+    
+    
   }
 
   public getToken() {

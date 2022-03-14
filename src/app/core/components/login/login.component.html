@@ -25,7 +25,8 @@
         <div class="c-login__form--resetpass">
             <a href="">¿Has olvidado la contraseña?</a>
         </div>
-        <button type="submit" [disabled]="loginOk">Iniciar sesión</button>
+        <div *ngIf="errorServer"><span>{{errorServer}}</span></div>
+        <button [ngClass]="{'button' : signinForm.valid, 'buttondisable' : !signinForm.valid}" type="submit" [disabled]="!signinForm.valid">Iniciar sesión</button>
     </form>
     <div class="c-login__footer">
         <span>from</span>
