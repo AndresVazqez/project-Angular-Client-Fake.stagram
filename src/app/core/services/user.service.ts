@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User } from '../models/models';
+import { User, UserLogin } from '../models/models';
 import { Router } from '@angular/router';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
@@ -52,7 +52,7 @@ export class UserService {
     .pipe(catchError(this.handleError) )
   }
 
-  public signIn(user: User){
+  public signIn(user: UserLogin){
     
     return this.http.post<any>(`${this.endPoint}/login`, user)
     .pipe(catchError(this.handleError))

@@ -1,8 +1,221 @@
-.form{
+@import '../../../../styles.scss';
+
+.c-register {
 
     display: flex;
     flex-direction: column;
-    width: 300px;
-    margin: 0 auto;
-  
+    align-items: center;
+
+    &__logo{
+
+        margin: 56px 0 0px;
+
+        img{
+            width: 175px;
+        }
+    }
+
+    &__title{
+
+        color: $color-gray;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 600;
+        width: 75%;
+        padding: 5px;
+        margin: 10px;
+    }
+    
+    &__btn {
+
+        display: flex;
+        width: 75%;        
+       
+
+        button{
+
+            background: $color-btn-blue;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            padding: 3px;
+            display: flex;
+            justify-content: center;
+
+            
+            a{
+                color: #ffff;
+                display: flex;
+                align-items: center;
+                margin: 3px;
+                font-weight: 600;
+                
+                img{
+                    
+                    margin: 0 5px;
+                    width: 20px;
+                }
+    
+            }
+
+        }
+
+
+    }
+
+    &__or {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+        margin: 15px 0;
+
+        div {
+
+            background-color: #dbdbdb;            
+            width: 42%;             
+            height: 1px;                    
+                   
+        }
+
+        span{
+
+            width: 16%;
+            text-align: center;
+            font-size: 13px;
+            color: $color-gray;
+            font-weight: 600; 
+        }
+    }
+
+    &__form{
+
+        display: flex;
+        flex-direction: column;
+        width: 75%;      
+
+        input {
+            
+            margin: 2px 0;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+            padding: 10px;
+            background: #FAFAFA;
+            
+            &::placeholder {
+            
+              font-size: 12px;
+              color: $color-gray;  
+              
+            }
+        }
+    }
+
+    .button{
+            
+        width: 100%;            
+        border: none;
+        background: $color-btn-blue;
+        padding: 8px;
+        border-radius: 3px;
+        color: #ffff;
+        font-weight: 600;
+        margin: 10px 0;
+        
+        &:active {
+
+            background: rgb(116, 193, 245);
+
+        }  
+    }
+    .buttondisabled{
+        
+        width: 100%;            
+        border: none;
+        background: $color-btn-blue-disable;
+        padding: 6px;
+        border-radius: 3px;
+        color: #ffff;
+        font-weight: 600;
+        margin: 10px 0;
+
+    }
+
+    &__para{
+
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        
+        p{
+
+            text-align: center;
+            font-size: 12px;
+            margin: 10px 7px;
+            color: $color-gray;
+            line-height: 1rem;
+            
+            a{
+                
+                font-weight: 600;
+                color: $color-gray
+            }
+        }
+    }
+
+    &__tologin{
+        
+        margin: 40px 0;
+        p{
+            font-size: 14px;  
+            
+            a{
+
+                color: $color-btn-blue
+            }
+        }
+    }
+
+    &__stores{
+
+        display: flex;
+        flex-direction: column;
+        
+
+        &--title {
+
+            
+            p {
+                font-size: 14px;
+                text-align: center;
+                margin: 20px 0;
+            }
+        }
+
+        &--icon{
+
+            img {
+                width: 140px;
+                margin: 0 4px;
+            }
+        }
+    } 
+    
+    &__footer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 95%;
+        padding: 10px;
+        margin: 40px 0 ;      
+
+        a{
+            font-size: 12px;
+            margin: 0 4px;
+            text-align: center;
+            padding: 2px;
+            color: $color-gray
+        }
+    }
 }

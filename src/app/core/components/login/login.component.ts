@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //Necesarias para construir el formulario. 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Image } from '../../models/models';
+import { Image, UserLogin } from '../../models/models';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -65,10 +65,16 @@ export class LoginComponent implements OnInit {
 
   public loginUser(): void {    
     
-    if(this.signinForm.valid){      
-      let dataUser = this.signinForm.value;
+    if(this.signinForm.valid){
+      
+      const dataUser: UserLogin = {
+        email: this.signinForm.get('email')?.value.toLowerCase(),
+        password: this.signinForm.get('password')?.value        
+      }     
+      console.log(dataUser)
       this.userService.signIn(dataUser).subscribe((res: any) => {             
         localStorage.setItem('token:', res);
+        this.signinForm.reset();
         this.router.navigate(['about'])  
     }, (err)=>{ this.setError(err) })          
     }

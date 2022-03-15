@@ -22,3 +22,9 @@ export interface Button {
 
     name:string
 }
+
+export interface UserLogin {
+
+    email:string,
+    password:string
+}

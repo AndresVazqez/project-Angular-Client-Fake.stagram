@@ -155,6 +155,15 @@
 
             }
         }  
+
+        &--errorlogin{
+
+            span{
+                color: rgb(255, 0, 0);
+                font-size: 12px;
+            }
+
+        }
     }
 
     &__footer{
@@ -169,6 +178,7 @@
             text-align: center;
             margin:5px;
             font-size: 12px;
+            
         }
         img{
            

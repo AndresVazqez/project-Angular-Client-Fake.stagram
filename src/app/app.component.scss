@@ -4,5 +4,31 @@ main {
     border: 1px solid rgb(235, 235, 235);
     aspect-ratio: 9/16;
     min-width: 375px;
+    height: 667px;
+    //max-height: 667px;
+    overflow: overlay;
+    background: #fff;
+    
+
+    &::-webkit-scrollbar {
+      
+        width: 6px;
+                 
+    }
+
+    &::-webkit-scrollbar-thumb {                            
+        background: lightgray;
+        background: transparent;
+        border-radius: 10px;
+
+        &:hover {
+            
+            background: rgb(121, 120, 120);
+        }
+
+        &:active {
+            background: rgb(121, 120, 120);
+        }
+    }         
     
 }

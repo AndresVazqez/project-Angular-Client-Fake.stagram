@@ -1,30 +1,103 @@
 
-<div>
-    <h4>Registration </h4>
+<div class="c-register"> 
+    
+    <div class="c-register__logo">
+        <img src="{{logoInsta.src}}" alt="{{logoInsta}}">
+    </div>
 
-    <form class="form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
-        <label for="image">Imagen</label>
-        <input formControlName="image" type="file" name="image">
+    <div class="c-register__title">
+        <p>
+            Regístrate para ver fotos y vídeos de tus amigos.
+        </p>
+    </div>
 
-        <label for="name">Name</label>
-        <input formControlName="name" type="text" name="name" >
+    <div class="c-register__btn">
+        <button>
+            <a href=""><img src="{{logoFb.src}}" alt="{{logoFb.alt}}">{{btnName}}</a>
+        </button>        
+    </div>
 
-        <label for="lastname" >Lastname</label>
-        <input formControlName="lastname" type="text" name="lastname">
+    <div class="c-register__or">
+        <div></div>
+        <span>O</span>
+        <div></div>
+    </div>
 
-        <label for="username">Username</label>
-        <input formControlName="username" type="text" name="username" >
-      
-        <label for="email">Email</label>
-        <input formControlName="email" type="email" name="email"> 
+    <form class="c-register__form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+       
+        <input 
+        formControlName="email" 
+        type="email" 
+        name="email"
+        placeholder="Correo electrónico"
+        > 
 
-        <label for="password">Password</label>
-        <input formControlName="password" type="password" name="password">
+        <input formControlName="name" 
+        type="text" 
+        name="name"
+        placeholder="Nombre completo" 
+        >
+        
+        <input formControlName="username" 
+        type="text" 
+        name="username"
+        placeholder="Nombre de usuario" 
+        >
+        
+        <input formControlName="password" 
+        type="password" 
+        name="password"
+        placeholder="Contraseña"
+        >
+        <input formControlName="repeatPassword" 
+        type="password" 
+        name="repeatPassword"
+        placeholder="Repetir contraseña"
+        >
         
         <div *ngIf="errorServer"><span>{{errorServer}}</span></div>
-
-        <input type="submit" value="SINGUP">  
+        <button 
+        [ngClass]="{ 'button' : registerOk, 'buttondisabled':!registerOk }"
+        class="button" 
+        type="submit" 
+        [disabled]="registerOk" >Registrarse        
+        </button>
+       
     </form>
+
+    <div class="c-register__para">        
+        <p >
+            Al registrarte, aceptas nuestras <a href="">Condiciones</a>. Obtén más información sobre cómo 
+            recopilamos, usamos y compartimos tu información en la <a href="">Poítica de datos</a> 
+            , así como el uso que hacemos de las cookies y tecnologías similares en nuestra
+            <a href="">Políticas de cookies</a>    
+        </p>
+    </div>
+
+    <div class="c-register__tologin">
+        <p>¿Tienes una cuenta? <a href="">Entrar</a></p>        
+    </div>
+
+    <div class="c-register__stores">
+        <div class="c-register__stores--title">
+            <p>
+                Descarga la aplicación.
+            </p>
+        </div>
+        <div class="c-register__stores--icon">
+            <a href="{{appleStoreLink}}"> 
+                <img src="{{appleStore.src}}" alt="{{appleStore.alt}}">
+            </a>
+            <a href="{{playStoreLink}}">
+                <img src="{{playStore.src}}" alt="{{playStore.alt}}">
+            </a>
+        </div>
+    </div>
+    <div class="c-register__footer">
+        <div *ngFor="let link of linksFooter">
+            <a href="">{{link}}</a>      
+        </div>  
+    </div>
     
 </div>
 
