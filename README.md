@@ -1,4 +1,10 @@
-# ClientAppLogin
+# Hello World, 👋 
+
+I am currently working on this application.
+I'm developing it with Angular, TypeScript and Node Js connected to a Mongo DB database.
+which consists of a social network in which users register, log in and then they can have a profile, upload photos, and view profiles of other users. 
+
+## fakestagram
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
