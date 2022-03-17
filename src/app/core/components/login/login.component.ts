@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   public logoInsta: Image;  
   public logoMeta:Image;
   public errorServer:string = '';
+  public passwordPattern:string = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$"
+  
 
 
 
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
   ) { 
     this.signinForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.email, Validators.minLength(1)]],
-      password:['',[Validators.required, Validators.maxLength(20), Validators.minLength(6)]]
+      password:['',[Validators.required, Validators.pattern(this.passwordPattern)]]
     }) ;
     
     this.btnName= "Continuar con Facebook"
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
       alt:"LogoFacebook"
     }
     this.logoInsta = {
-      src:"https://i.ibb.co/t84wDXq/instagram-log.png",
+      src:"https://i.ibb.co/hmtzv9w/fakestagram.png",
       alt:"logo Insta"
     }
     this.logoMeta = {
@@ -45,21 +47,24 @@ export class LoginComponent implements OnInit {
       alt:"logo meta"
     }  
 
+    this.userService.isLoggedIn ? this.router.navigate(['']) : null
+
+
   }
 
   ngOnInit(): void {
+
   }
   public setError (error:string) {
 
     if(error === 'User not found'){
       
-     this.errorServer = "Usuario no encontrado";
+     this.errorServer = "Usuario no encontrado.";
 
     } if ( error === 'invalid password') {
 
-      this.errorServer = "Contraseña invalida";
-    }
-    
+      this.errorServer = "Tu contraseña no es correcta. vuelve a comprobarla.";
+    }    
 
   }
 
@@ -73,9 +78,9 @@ export class LoginComponent implements OnInit {
       }     
       console.log(dataUser)
       this.userService.signIn(dataUser).subscribe((res: any) => {             
-        localStorage.setItem('token:', res);
+        localStorage.setItem('token', res);
         this.signinForm.reset();
-        this.router.navigate(['about'])  
+        this.router.navigate([''])  
     }, (err)=>{ this.setError(err) })          
     }
   }

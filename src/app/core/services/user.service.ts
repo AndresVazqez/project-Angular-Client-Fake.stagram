@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User, UserLogin } from '../models/models';
+import { User, UserLogin, UserRegister } from '../models/models';
 import { Router } from '@angular/router';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
@@ -45,23 +45,21 @@ export class UserService {
     return (throwError(message));
   }
 
-  public signUp (user: User): Observable<any> {
+  public signUp (user: UserRegister): Observable<any> {
 
     let url = `${this.endPoint}`;
     return this.http.post(url, user)
     .pipe(catchError(this.handleError) )
   }
 
-  public signIn(user: UserLogin){
-    
+  public signIn(user: UserLogin): Observable<any>{
+    console.log(user)    
     return this.http.post<any>(`${this.endPoint}/login`, user)
-    .pipe(catchError(this.handleError))
-    
-    
+    .pipe(catchError(this.handleError))  
   }
 
   public getToken() {
-    return localStorage.getItem('toke');
+    return localStorage.getItem('token');
   }
 
   get isLoggedIn(): boolean {
@@ -71,7 +69,7 @@ export class UserService {
 
   public logOut(): void {
     
-    let removeToken = localStorage.removeItem('toke');
+    let removeToken = localStorage.removeItem('token');
     if (removeToken == null) {
       this.router.navigate(['']);
     }

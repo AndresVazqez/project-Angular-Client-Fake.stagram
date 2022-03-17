@@ -106,6 +106,13 @@
              color: $color-gray;  
              
            }
+
+           &:focus {
+
+            border: 1px solid rgb(110, 110, 110);               
+            outline: none;
+            
+        }
         }
 
         &--resetpass{
@@ -157,12 +164,26 @@
         }  
 
         &--errorlogin{
-
-            span{
+            
+            padding: 10px;
+            text-align: center;
+           
+            p {
                 color: rgb(255, 0, 0);
-                font-size: 12px;
+                font-size: 14px;              
+                
             }
+        }
+    }
 
+    &__toregister{
+
+        p {
+            font-size: 12px;
+            a {
+
+                color: $color-btn-blue
+            }
         }
     }
 

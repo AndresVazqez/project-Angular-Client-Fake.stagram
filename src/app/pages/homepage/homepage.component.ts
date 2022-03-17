@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterStatus } from 'src/app/core/models/models';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,7 +11,7 @@ export class HomepageComponent implements OnInit {
 
   public statusRegistered = ''
 
-  constructor() { }
+  constructor(public userService:UserService) { }
 
   ngOnInit(): void {
   }

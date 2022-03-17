@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Image, User, UserLogin } from '../../models/models';
+import { Image, User, UserLogin, UserRegister } from '../../models/models';
 import { UserService } from '../../services/user.service';
+import { comparePassword } from '../../services/validators/customValidators';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,12 @@ export class RegisterComponent implements OnInit {
   public playStore: Image;
   public appleStoreLink: string;
   public playStoreLink: string;
-  public linksFooter:string [] =[];
+  public linksFooter:string [] = [];
+  public submitted:boolean = false;
+  public passwordPattern:string = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$"
+  public showPattern:boolean = false;
+  public closeImg:Image;
+  public showListPattern:string[]=[];
 
 
   constructor(
@@ -31,24 +37,29 @@ export class RegisterComponent implements OnInit {
     private router: Router
 
   ) {
+
+    this.authService.isLoggedIn ? this.router.navigate(['']) : null
     
     this.errorServer = "";
 
     this.registerForm = this.fb.group({
-      name: [''],
-      lastname: [''],
-      username: [''],
-      email: [''],
-      password: [''],
-      repeatPassword : [''], 
-      
 
-    })
+      email: ['',[Validators.required, Validators.email]],
+      name: ['',[Validators.required, Validators.minLength(1)]],
+      username: ['',[Validators.required, Validators.minLength(4)] ],      
+      password: ['',[Validators.required, Validators.pattern(this.passwordPattern)]],
+      repeatPassword : ['',[Validators.required, Validators.maxLength(20), Validators.minLength(8)]], 
+      
+    },
+    {
+      validator: comparePassword("password", "repeatPassword")
+    }
+    )
 
   
     this.btnName= "Iniciar sesión con Facebook"    
     this.logoInsta = {
-      src:"https://i.ibb.co/t84wDXq/instagram-log.png",
+      src:"https://i.ibb.co/hmtzv9w/fakestagram.png",
       alt:"logo Insta"
     }
     this.logoFb = {
@@ -62,6 +73,10 @@ export class RegisterComponent implements OnInit {
     this.playStore = {     
       src: "https://i.ibb.co/dmJ3L4t/playstore.png",
       alt: "play store logo"
+    }
+    this.closeImg = {     
+      src: "https://i.ibb.co/thGv7Mc/close.png",
+      alt: "close icon"
     }
 
     this.appleStoreLink = "https://apps.apple.com/app/instagram/id389801252?vt=lo"
@@ -79,6 +94,13 @@ export class RegisterComponent implements OnInit {
     "Ubicaciones",
     "Instagram Lite"      
   ]
+    this.showListPattern = [
+      'Tener al menos 8 caracteres.',
+      'Tener al menos 1 letra (a, b, c...)',
+      'Tener al menos 1 número (1, 2, 3...)',
+      'Tener al menos 1 caracter especial ($, *, #..)',
+      'Inlcuir caracteres en minúsculas y mayúsculas.'
+    ]
 
   }
 
@@ -100,26 +122,50 @@ export class RegisterComponent implements OnInit {
 
       this.errorServer = 'El email y el Username ya están en uso';
     }
+    //  if (err.includes('invalid password')) {
+    //   this.errorServer = "la contraseña debe contener al menos una mayuscula, una minuscula, un numero, y un caracter especial debe tener entre 8 y 10 caracteres"
+    // }
 
   }
 
   public loginUser(user:UserLogin): void {
     console.log(user);
-    this.authService.signIn(user);
+    this.authService.signIn(user).subscribe((res: any) => {             
+      localStorage.setItem('token', res);      
+      this.router.navigate([''])  
+  }, (err)=>{ this.setError(err) });
+  }
+
+  public showPatternPassword (param:boolean) {    
+    this.showPattern = param;    
+    if (param == true)
+    setTimeout(()=>{      
+      this.showPattern = false; 
+    }, 10000)
+    
   }
 
   public registerUser() {
+    
+    this.submitted = true;    
+    if(this.registerForm.valid){
 
-    let dataUser = this.registerForm.value    
-    this.authService.signUp(dataUser)
-      .subscribe((res) => {
-        console.log(res)
-        if (res) {
-          this.errorServer = '';
-          this.loginUser(dataUser);           
-          this.registerForm.reset();          
-          this.router.navigate(['']);
-        }
-      }, (err) => { this.setError(err) })
+      console.log("es valido")
+      const dataUser : UserRegister ={        
+        email: this.registerForm.get('email')?.value,
+        name: this.registerForm.get('name')?.value,
+        username: this.registerForm.get('username')?.value,
+        password: this.registerForm.get('password')?.value,
+      }   
+      this.authService.signUp(dataUser)
+        .subscribe((res) => {
+          console.log(res)
+          if (res) {
+            this.errorServer = '';
+            this.registerForm.reset();                  
+            this.loginUser(dataUser);           
+          }
+        }, (err) => { this.setError(err) })
+    }
   }
 }

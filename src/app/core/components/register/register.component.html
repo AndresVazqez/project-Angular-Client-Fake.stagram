@@ -31,6 +31,7 @@
         name="email"
         placeholder="Correo electrónico"
         > 
+       
 
         <input formControlName="name" 
         type="text" 
@@ -45,28 +46,46 @@
         >
         
         <input formControlName="password" 
+        (click)="showPatternPassword(true)"
         type="password" 
         name="password"
-        placeholder="Contraseña"
+        placeholder="Contraseña"        
         >
         <input formControlName="repeatPassword" 
         type="password" 
         name="repeatPassword"
         placeholder="Repetir contraseña"
         >
+        <div class="c-register__form--pattern" *ngIf="showPattern">
+                        
+            <p>La contraseña debe:</p>   
+
+            <div class="c-register__form--pattern--btn">
+                <!-- <button (click)="showPatternPassword(false)">
+                    <img src="{{closeImg.src}}" alt="{{closeImg.alt}}">
+                </button> -->
+                <ul *ngFor="let item of showListPattern" >
+                    <li>{{item}}</li>
+                </ul>
+            </div>
+          
+       </div>
         
-        <div *ngIf="errorServer"><span>{{errorServer}}</span></div>
+        <div class="c-register__err" *ngIf="errorServer">
+            <span>{{errorServer}}</span>
+        </div>
+
         <button 
-        [ngClass]="{ 'button' : registerOk, 'buttondisabled':!registerOk }"
+        [ngClass]="{ 'button' : registerForm.valid, 'buttondisabled':!registerForm.valid }"
         class="button" 
         type="submit" 
-        [disabled]="registerOk" >Registrarse        
+        [disabled]="!registerForm.valid" >Registrarse        
         </button>
        
     </form>
 
     <div class="c-register__para">        
-        <p >
+        <p>
             Al registrarte, aceptas nuestras <a href="">Condiciones</a>. Obtén más información sobre cómo 
             recopilamos, usamos y compartimos tu información en la <a href="">Poítica de datos</a> 
             , así como el uso que hacemos de las cookies y tecnologías similares en nuestra
@@ -75,7 +94,7 @@
     </div>
 
     <div class="c-register__tologin">
-        <p>¿Tienes una cuenta? <a href="">Entrar</a></p>        
+        <p>¿Tienes una cuenta? <a [routerLink]="['/login']">Entrar</a></p>        
     </div>
 
     <div class="c-register__stores">

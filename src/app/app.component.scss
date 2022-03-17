@@ -1,13 +1,14 @@
 main {
 
     max-width: 375px;
-    border: 1px solid rgb(235, 235, 235);
+    //border: 4px solid rgb(201, 35, 35);
     aspect-ratio: 9/16;
     min-width: 375px;
     height: 667px;
     //max-height: 667px;
     overflow: overlay;
     background: #fff;
+   
     
 
     &::-webkit-scrollbar {

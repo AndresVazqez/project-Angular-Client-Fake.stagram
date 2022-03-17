@@ -12,12 +12,12 @@ export class OnboardingComponent implements OnInit {
   public logoMeta: Image;
   public btn: Button;
   public divice:any;
-  public linkToStore:string;
+  public linkToStore:string = '';
 
   constructor(  ) { 
 
     this.logoInsta = {
-      src:'https://i.ibb.co/t84wDXq/instagram-log.png',
+      src:'https://i.ibb.co/hmtzv9w/fakestagram.png',
       alt:'logo instagram'
     }
     
@@ -28,9 +28,8 @@ export class OnboardingComponent implements OnInit {
     
     this.btn ={
       name: "Descarga la aplicación de Instagram"
-    }
+    }    
     
-    this.linkToStore=''
     this.divice = navigator.appVersion   
 
     if(this.divice.includes("Android")){

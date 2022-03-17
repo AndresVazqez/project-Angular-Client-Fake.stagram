@@ -17,17 +17,24 @@
         <div></div>
     </div>
     <form class="c-login__form" [formGroup]="signinForm" (ngSubmit)="loginUser()">
-        <!-- <label for="email" type="email">Email</label> -->
+       
         <input formControlName="email" type="text" placeholder="Usuario o Correo electrónico">
-        <!-- <label for="password" type="password">Password</label> -->
+      
         <input formControlName="password" name="password" type="password" placeholder="Contraseña">
 
         <div class="c-login__form--resetpass">
             <a href="">¿Has olvidado la contraseña?</a>
         </div>
-        <div class="c-login__form--errorlogin" *ngIf="errorServer"><span>{{errorServer}}</span></div>
+        <div class="c-login__form--errorlogin" *ngIf="errorServer">
+            <p>{{errorServer}}</p>
+        </div>
         <button [ngClass]="{'button' : signinForm.valid, 'buttondisable' : !signinForm.valid}" type="submit" [disabled]="!signinForm.valid">Iniciar sesión</button>
     </form>
+    <div class="c-login__toregister">
+        <p>
+            ¿No tienes cuenta? <a [routerLink]="['/register']">Registrate</a>
+        </p>
+    </div>
     <div class="c-login__footer">
         <span>from</span>
         <img src="{{logoMeta.src}}" alt="{{logoMeta.alt}}">

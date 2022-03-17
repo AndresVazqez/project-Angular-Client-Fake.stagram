@@ -13,25 +13,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OnboardingComponent } from './core/components/onboarding/onboarding.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { HomeComponent } from './core/components/home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomepageComponent,
+    AppComponent,    
     AboutComponent,
-    NavigatorComponent,
-    LoginComponent,
-    RegisterComponent,
-    RegisterpageComponent,
-    OnboardingComponent,
+    NavigatorComponent,  
+   
+   
+       
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
+    AppRoutingModule,    
     HttpClientModule,
   ],
   providers: [
