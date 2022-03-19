@@ -5,7 +5,8 @@ export interface User {
     username: String,
     email: String,
     password: String,
-    image: String
+    image: String,
+    posts:[]    
 }
 
 export interface RegisterStatus {

@@ -1,0 +1,75 @@
+@import '../../../../../styles.scss';
+
+.c-userinfoprofile{
+
+    width: 100%; 
+    
+
+    &__main{
+
+        display: flex;
+        width: 100%;
+        margin: 10px 0;       
+       
+
+        &--imgprofile{
+
+            width: 77px;
+            height: 77px;
+            border: 1px solid $color-light-gray;
+            border-radius: 50%; 
+            margin: 18px; 
+
+        }
+
+        &--infoprofile{
+
+            padding-top: 5px;
+                                 
+
+            p{
+
+                font-size: 28px;
+                margin: 4px 0;
+            }
+
+            button{
+                border: 1px solid $color-light-gray;
+                background: none;
+                padding: 6px 9px;
+                width: 230px;
+                border-radius: 4px;
+                font-weight: 600;
+                // font-size: ;
+            }
+        }
+    }
+
+    &__name{
+
+        margin: 0 20px;
+    }
+
+    &__follow{
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin: 15px 0;
+        border-bottom: 1px solid $color-light-gray;
+        border-top: 1px solid $color-light-gray;
+        padding: 12px 0;
+
+        &--item{
+
+            span{
+                font-weight: 600;
+            }
+            p{
+                font-size: 14px;
+                color: $color-gray;
+            }
+        }
+    }
+}
