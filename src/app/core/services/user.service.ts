@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User, UserLogin, UserRegister } from '../models/models';
+import { User, UserLogin, UserPost, UserRegister } from '../models/models';
 import { Router } from '@angular/router';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 })
 export class UserService {
 
-  private endPoint:string = 'http://localhost:5000/api/users';
+  private endPoint:string = 'http://localhost:5000/api';
   public headers= new HttpHeaders().set('Content-Type', 'application/json');
   public currentUser: User | null = null;
   public errorServer:string | null = null;
@@ -47,14 +47,14 @@ export class UserService {
 
   public signUp (user: UserRegister): Observable<any> {
 
-    let url = `${this.endPoint}`;
+    let url = `${this.endPoint}/users`;
     return this.http.post(url, user)
     .pipe(catchError(this.handleError) )
   }
 
   public signIn(user: UserLogin): Observable<any>{
     console.log(user)    
-    return this.http.post<any>(`${this.endPoint}/login`, user)
+    return this.http.post<any>(`${this.endPoint}/users/login`, user)
     .pipe(catchError(this.handleError))  
   }
 
@@ -76,9 +76,9 @@ export class UserService {
 
   }
 
-  public getUser(id: string): Observable<any>{
+  public getUser(id:string): Observable<any>{
 
-    let api = `${this.endPoint}/${id}`;
+    let api = `${this.endPoint}/users/${id}`; 
     return this.http.get(api, {headers: this.headers})
     .pipe(map((res:any) => {
       
@@ -86,5 +86,19 @@ export class UserService {
     }),
     catchError(this.handleError)
     )
+  }
+
+  public postImages ( post:FormData){
+
+    let api = `${this.endPoint}/posts`;
+    return this.http.post(api, post)
+    .pipe(catchError(this.handleError))  
+
+  }
+
+  public patchUser (id:string):void{
+
+    let api = `${this.endPoint}/users/${id}`
+
   }
 }

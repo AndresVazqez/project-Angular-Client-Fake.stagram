@@ -18,9 +18,7 @@ export class LoginComponent implements OnInit {
   public logoInsta: Image;  
   public logoMeta:Image;
   public errorServer:string = '';
-  public passwordPattern:string = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$"
-  
-
+  public passwordPattern:string = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$";
 
 
   constructor(
@@ -77,8 +75,11 @@ export class LoginComponent implements OnInit {
         password: this.signinForm.get('password')?.value        
       }     
       console.log(dataUser)
-      this.userService.signIn(dataUser).subscribe((res: any) => {             
-        localStorage.setItem('token', res);
+      this.userService.signIn(dataUser).subscribe((res: any) => {    
+        console.log(res)         
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('id', res.id);
+
         this.signinForm.reset();
         this.router.navigate([''])  
     }, (err)=>{ this.setError(err) })          

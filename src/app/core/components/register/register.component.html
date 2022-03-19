@@ -27,8 +27,7 @@
        
         <input 
         formControlName="email" 
-        type="email" 
-        name="email"
+        type="text"        
         placeholder="Correo electrónico"
         > 
        
@@ -60,10 +59,7 @@
                         
             <p>La contraseña debe:</p>   
 
-            <div class="c-register__form--pattern--btn">
-                <!-- <button (click)="showPatternPassword(false)">
-                    <img src="{{closeImg.src}}" alt="{{closeImg.alt}}">
-                </button> -->
+            <div class="c-register__form--pattern--btn">           
                 <ul *ngFor="let item of showListPattern" >
                     <li>{{item}}</li>
                 </ul>

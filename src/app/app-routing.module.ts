@@ -14,8 +14,27 @@ const routes: Routes = [
     path: 'login', loadChildren: () => import('./pages/loginpage/loginpage.module').then(m => m.LoginpageModule)
   },  
   {
+    path: 'search', loadChildren: () => import('./pages/searchpage/searchpage.module').then(m => m.SearchpageModule),
+    canActivate: [UserGuard] 
+  },
+  {
+    path: 'activity', loadChildren: () => import('./pages/activity/activity.module').then(m => m.ActivityModule),
+    canActivate: [UserGuard] 
+  },
+  {
+    path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [UserGuard] 
+  },
+  {
+    path: 'create', loadChildren: () => import('./pages/createpage/createpage.module').then(m => m.CreatepageModule),
+    canActivate: [UserGuard] 
+  },
+  {
+    path: '**', redirectTo: '/home', pathMatch: 'full'
+  },
+  {
     path: '', redirectTo: '/home', pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({

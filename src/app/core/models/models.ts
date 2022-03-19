@@ -36,3 +36,11 @@ export interface UserRegister {
     password:string,
     
 }
+
+export interface UserPost {
+
+    image:File;
+    caption:string,
+    userId:string | null;
+    
+}

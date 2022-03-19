@@ -152,7 +152,7 @@ export class RegisterComponent implements OnInit {
 
       console.log("es valido")
       const dataUser : UserRegister ={        
-        email: this.registerForm.get('email')?.value,
+        email: this.registerForm.get('email')?.value.toLowerCase(),
         name: this.registerForm.get('name')?.value,
         username: this.registerForm.get('username')?.value,
         password: this.registerForm.get('password')?.value,

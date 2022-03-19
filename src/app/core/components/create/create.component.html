@@ -1,0 +1,16 @@
+<div>
+    <h3>Crea un nuevo post.</h3>
+
+    <form [formGroup]="uploadPost" (ngSubmit)="uploadFile()">
+        <label for="image" class="prueba" >           
+            <img src="{{imagePreview}}" alt="">
+            Sube una imagen
+        </label>
+        <input formControlName="image" id="image" (change)="imgSelect($event)" type="file">
+        <label for="">Añade una descripcion</label>
+        <textarea formControlName="caption" ></textarea>       
+        <button type="submit">Enviar</button>       
+    </form>
+
+    
+</div>

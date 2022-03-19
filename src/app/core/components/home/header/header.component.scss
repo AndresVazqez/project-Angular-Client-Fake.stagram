@@ -1,14 +1,50 @@
+@import '../../../../../styles.scss';
+
 .c-header {
 
-    background: lightblue;
-    width: 30px; 
-    
-    &__logo{
+   
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    align-items: center;
+    border-bottom: 1px solid $color-light-gray;
+
+    &__logo {
+
+        width: 110px;
+        margin-bottom: -10px;
+    }
+
+    &__cam {
         
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         img{
-            
+
             width: 30px;
         }
+        
     }
+    
+    &__send {
+        
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        img{
+    
+            width: 24px;
+        }
+        
+    }
+    
 
 }

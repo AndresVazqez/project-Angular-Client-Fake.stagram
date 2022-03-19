@@ -19,7 +19,7 @@ export class UserGuard implements CanActivate {
 
     //hace el get de isloggedIn del servicio para proteger las rutas
     if (this.userService.isLoggedIn !== true) {
-      window.alert("Access not allowed!");
+      
       this.router.navigate([''])
     }
     return true;

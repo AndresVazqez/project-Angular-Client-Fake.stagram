@@ -22,8 +22,12 @@ body {
     justify-content: center;
     align-items: center;
     //border: 1px solid rgb(0, 0, 0);
-    height: 99vh;
+    height: 100vh;
     background: #000000;
+    
+    
+    
+    
 }
 
 // variable color
@@ -31,4 +35,5 @@ body {
 $color-btn-blue: rgb(0, 149, 246);
 $color-gray: #8E8E8E;
 $color-btn-blue-disable: #B2DFFC;
+$color-light-gray: #dbdbdb;
    

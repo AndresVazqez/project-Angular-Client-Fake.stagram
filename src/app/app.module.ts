@@ -11,31 +11,49 @@ import { RegisterComponent } from './core/components/register/register.component
 import { RegisterpageComponent } from './pages/registerpage/registerpage.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OnboardingComponent } from './core/components/onboarding/onboarding.component';
 import { LoginpageComponent } from './pages/loginpage/loginpage.component';
 import { HomeComponent } from './core/components/home/home.component';
+import { NavigationComponent } from './core/components/navigation/navigation.component';
+import { SearchpageComponent } from './pages/searchpage/searchpage.component';
+import { ActivityComponent } from './pages/activity/activity.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptors';
+import { CreatepageComponent } from './pages/createpage/createpage.component';
+import { CreateComponent } from './core/components/create/create.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
     AboutComponent,
-    NavigatorComponent,  
-   
-   
-       
+    NavigatorComponent,
+    NavigationComponent,
+    SearchpageComponent,
+    ActivityComponent,
+    ProfileComponent,
+    CreatepageComponent,
+    CreateComponent,
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,    
+    AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [
-    UserService,    
+  providers: [   
+     UserService, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
- 
+
 })
 export class AppModule { }
