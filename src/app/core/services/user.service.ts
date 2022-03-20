@@ -87,6 +87,17 @@ export class UserService {
     catchError(this.handleError)
     )
   }
+  public getpost(id:string): Observable<any>{
+
+    let api = `${this.endPoint}/posts/${id}`; 
+    return this.http.get(api, {headers: this.headers})
+    .pipe(map((res:any) => {
+      
+      return res || {}
+    }),
+    catchError(this.handleError)
+    )
+  }
 
   public postImages ( post:FormData){
 

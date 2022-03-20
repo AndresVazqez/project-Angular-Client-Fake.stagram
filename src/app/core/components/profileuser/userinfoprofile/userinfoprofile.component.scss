@@ -3,7 +3,7 @@
 .c-userinfoprofile{
 
     width: 100%; 
-    
+    margin-top: 50px; 
 
     &__main{
 
@@ -15,22 +15,42 @@
         &--imgprofile{
 
             width: 77px;
+            min-width: 77px;
             height: 77px;
             border: 1px solid $color-light-gray;
             border-radius: 50%; 
-            margin: 18px; 
+            margin: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            overflow: hidden;
+            
+
+            img {
+                
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
         }
 
         &--infoprofile{
 
+            width: 100%;
             padding-top: 5px;
-                                 
-
+            
             p{
-
+                
+                width: 250px;         
                 font-size: 28px;
                 margin: 4px 0;
+                overflow-y: hidden;
+               // text-overflow: ellipsis;
+                
+                &::-webkit-scrollbar{
+                    height: 0px;                    
+                }
             }
 
             button{
@@ -40,14 +60,15 @@
                 width: 230px;
                 border-radius: 4px;
                 font-weight: 600;
-                // font-size: ;
+        
             }
         }
     }
 
-    &__name{
-
-        margin: 0 20px;
+    &__name{       
+     
+        margin: 0 20px;     
+    
     }
 
     &__follow{

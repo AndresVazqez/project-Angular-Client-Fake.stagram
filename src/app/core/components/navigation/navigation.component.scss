@@ -9,6 +9,7 @@
     position: absolute;
     align-items: center;    
     bottom: 0;
+    z-index: 15;  
 
     &__icon{
         width: 24px;

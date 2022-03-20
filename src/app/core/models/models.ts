@@ -1,7 +1,6 @@
 export interface User {
     
-    name: String,
-    lastname: String,
+    name: String, 
     username: String,
     email: String,
     password: String,
@@ -43,5 +42,7 @@ export interface UserPost {
     image:File;
     caption:string,
     userId:string | null;
+    _id: string,
+    createdAt :string;
     
 }

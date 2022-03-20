@@ -1,1 +1,5 @@
-<p>galleryprofile works!</p>
+<div class="c-galleryprofile" *ngIf="dataUser">
+    <div class="c-galleryprofile__post" *ngFor="let post of posts" routerLink="{{post._id}}">        
+        <img src="{{post.image}}" alt="{{post.caption}}">
+    </div>  
+</div>  

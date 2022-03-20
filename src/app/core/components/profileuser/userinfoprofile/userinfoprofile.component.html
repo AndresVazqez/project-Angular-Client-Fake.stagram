@@ -1,22 +1,22 @@
-<div class="c-userinfoprofile">
+<div *ngIf="dataUser" class="c-userinfoprofile">
     <div class="c-userinfoprofile__main">
 
         <div class="c-userinfoprofile__main--imgprofile">
-            <img src="" alt="">
+            <img src="{{dataUser.image ? dataUser.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="{{dataUser.username}}">
         </div>
         <div class="c-userinfoprofile__main--infoprofile">
-            <p>username</p>            
+            <p>{{dataUser.username}}</p>            
             <button> Editar perfil</button>           
         </div>
     </div>
 
     <div class="c-userinfoprofile__name">
-        <h5>Andrés Vázquez</h5>
+        <h5>{{dataUser.name}}</h5>
         <p>Madrid, Spain</p>
     </div>
     <div class="c-userinfoprofile__follow">
         <div class="c-userinfoprofile__follow--item">
-            <span>0</span>
+            <span>{{dataUser.posts ? dataUser.posts.length : 0 }}</span>
             <p>publicaciones</p>
         </div>
         <div class="c-userinfoprofile__follow--item">
@@ -29,5 +29,6 @@
         </div>
     
     </div>
+    <button (click)="mostrar()">mostrar</button>
 
 </div>

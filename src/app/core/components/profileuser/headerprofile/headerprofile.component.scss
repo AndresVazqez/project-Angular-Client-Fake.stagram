@@ -9,6 +9,10 @@
     align-items: center;
     padding: 8px 15px;
     border-bottom: 1px solid $color-light-gray;
+    position: absolute;
+    height: 50px;
+    top:0;
+    background: #ffff;
 
     &__config{
 

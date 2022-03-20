@@ -1,0 +1,25 @@
+@import '../../../../../styles.scss';
+
+.c-galleryprofile {
+
+    display: flex;
+    flex-wrap: wrap;
+  
+
+    &__post{
+        
+        width: 123px;
+        height: 123px;
+        overflow: hidden;
+        margin: 1px;
+        
+        img {
+    
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+}

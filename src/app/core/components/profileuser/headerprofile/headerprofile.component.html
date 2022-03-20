@@ -3,8 +3,8 @@
         <img src="{{configIcon.src}}" alt="{{configIcon.alt}}">
     </div>
     <div class="c-headerprofile__user">
-        <h5>
-            Andrés Vázquez  
+        <h5 *ngIf="dataUser">
+            {{dataUser.username}}  
         </h5>
     </div>
     <div class="c-headerprofile__explore">

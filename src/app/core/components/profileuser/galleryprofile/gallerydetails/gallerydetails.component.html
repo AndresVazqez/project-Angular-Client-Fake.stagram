@@ -1,0 +1,52 @@
+<div *ngIf="dataUser" class="c-gallerydetails">
+
+    <div class="c-gallerydetails__header">
+        <div class="c-gallerydetails__header--item">
+            <button>
+                <img [routerLink]="['/profile']" src="{{arrowBack.src}}" alt="{{arrowBack.alt}}">
+            </button>
+            <div>
+                <p>Foto</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="c-gallerydetails__user">
+
+        <div class="c-gallerydetails__user--profile">
+
+            <div class="c-gallerydetails__user--profile--img">
+                <img src="{{dataUser.image ? dataUser.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="userimage">
+            </div>
+            <div class="c-gallerydetails__user--profile--parag">
+                <p>{{dataUser.username}}</p>
+            </div>
+
+        </div>
+
+        <div class="c-gallerydetails__user--options">
+            <img src="{{optionsIcon.src}}" alt="{{optionsIcon.alt}}">
+        </div>
+
+    </div>
+
+    <div *ngIf="post; else nopost" class="c-gallerydetails__infopost">
+        <figure>
+            <img src="{{post.image}}" alt="{{post.caption}}">
+        </figure>
+        <figcaption>
+            <strong>{{dataUser.username}} </strong> <span>{{post.caption}}</span>
+        </figcaption>
+        <time datetime="">
+            {{date}}
+        </time>
+     
+        <!-- <button (click)="mostrarData()">mostrar</button> -->
+    </div>
+    <ng-template  #nopost>
+        <div class="c-gallerydetails__nopost" > 
+            <img src="https://i.ibb.co/R7pGHnm/no-image-available-icon-6.png" alt="no image to show">
+        </div>
+
+    </ng-template>
+</div>

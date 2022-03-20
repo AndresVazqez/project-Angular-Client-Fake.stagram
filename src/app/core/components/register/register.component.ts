@@ -130,8 +130,9 @@ export class RegisterComponent implements OnInit {
 
   public loginUser(user:UserLogin): void {
     console.log(user);
-    this.authService.signIn(user).subscribe((res: any) => {             
-      localStorage.setItem('token', res);      
+    this.authService.signIn(user).subscribe((res: any) => {  
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('id', res.id);    
       this.router.navigate([''])  
   }, (err)=>{ this.setError(err) });
   }
@@ -142,30 +143,32 @@ export class RegisterComponent implements OnInit {
     setTimeout(()=>{      
       this.showPattern = false; 
     }, 10000)
-    
+  
   }
 
-  public registerUser() {
+ public  async  registerUser ()  {
     
     this.submitted = true;    
     if(this.registerForm.valid){
 
       console.log("es valido")
-      const dataUser : UserRegister ={        
+      const dataUser: UserRegister = {        
         email: this.registerForm.get('email')?.value.toLowerCase(),
         name: this.registerForm.get('name')?.value,
         username: this.registerForm.get('username')?.value,
         password: this.registerForm.get('password')?.value,
       }   
-      this.authService.signUp(dataUser)
+       this.authService.signUp(dataUser)
         .subscribe((res) => {
-          console.log(res)
+          console.log(res);
           if (res) {
             this.errorServer = '';
-            this.registerForm.reset();                  
-            this.loginUser(dataUser);           
+            this.registerForm.reset();  
+            this.loginUser(dataUser);
+
+   
           }
-        }, (err) => { this.setError(err) })
+        }, (err) => { this.setError(err); })
     }
   }
 }

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './pages/about/about.component';
-import { NavigatorComponent } from './core/components/navigator/navigator.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,6 +12,7 @@ import { ActivityComponent } from './pages/activity/activity.component';
 import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptors';
 import { CreatepageComponent } from './pages/createpage/createpage.component';
 import { CreateComponent } from './core/components/create/create.component';
+import { GallerydetailsComponent } from './core/components/profileuser/galleryprofile/gallerydetails/gallerydetails.component';
 
 
 
@@ -24,12 +24,12 @@ import { CreateComponent } from './core/components/create/create.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
-    NavigatorComponent,
+    AboutComponent, 
     NavigationComponent,    
     ActivityComponent,  
     CreatepageComponent,
-    CreateComponent,    
+    CreateComponent,
+    GallerydetailsComponent,    
    
   ],
   imports: [
