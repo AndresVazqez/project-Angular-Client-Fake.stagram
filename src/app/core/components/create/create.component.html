@@ -1,12 +1,32 @@
 <app-createheader></app-createheader>
 <div class="c-create">
-    <form [formGroup]="uploadPost" (ngSubmit)="uploadFile()">
-        <label for="image" class="prueba" >           
-            <img src="{{imagePreview ? imagePreview : 'https://i.ibb.co/R7pGHnm/no-image-available-icon-6.png'}}" alt="">    
+    <form class="c-create__form" [formGroup]="uploadPost" (ngSubmit)="uploadFile()">
+        <label for="image"  class="c-create__form--image">           
+            <img src="{{imagePreview ? imagePreview : 'https://i.ibb.co/q1gQj4t/addphoto.png'}}" alt="">    
         </label>
-        <input formControlName="image" id="image" (change)="imgSelect($event)" type="file">
-        <label for="">Añade una descripcion</label>
-        <textarea formControlName="caption" ></textarea>       
-        <button type="submit">Enviar</button>       
-    </form>    
+        <input style="display: none" formControlName="image" id="image" (change)="imgSelect($event)" type="file">
+
+        <div class="c-create__form--caption">
+            <label for="">Escribe un pie de foto...</label>
+            <textarea formControlName="caption" ></textarea>  
+        </div>
+        <ng-container *ngIf="errorPosting">
+            <span>La imagen no ha podido compartirse, el formato debe ser
+                 "jpg", "png", 'jpeg', 'gif', ademas no debe exceder los 5mb.
+            </span>
+        </ng-container>
+        <div>
+            <button class="{{ uploadPost.valid ? ' ' : 'buttondisable' }}" type="submit">Compartir</button>
+        </div>
+    </form> 
+    
+    <ng-container *ngIf="submitted">
+        <div class="c-create__submitted">
+            <div class="c-create__submitted--msg">
+                <span>Imagen compartida con exito!</span>
+                <button routerLink="/profile">Aceptar</button>
+            </div>
+        </div>
+    </ng-container>
+
 </div>

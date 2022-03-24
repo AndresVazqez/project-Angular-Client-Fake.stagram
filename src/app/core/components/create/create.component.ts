@@ -15,6 +15,8 @@ export class CreateComponent implements OnInit {
   public imagePreview: string;
   public file!: File;
   public userId: string | null;
+  public submitted: boolean= false;
+  public errorPosting: boolean = false;
 
 
   constructor(
@@ -47,6 +49,20 @@ export class CreateComponent implements OnInit {
 
   }
 
+  showMessageDataSaved() {
+
+    this.submitted = true;
+    this.submitted && document.body.classList.add('blockscroll')
+    
+    setTimeout(() => {  
+      this.router.navigate(['/profile']);   
+      document.body.classList.remove('blockscroll');   
+      this.submitted = false;
+
+    }, 4000)
+
+  }
+
   public uploadFile() {
 
     if (this.uploadPost.valid) {
@@ -59,8 +75,12 @@ export class CreateComponent implements OnInit {
 
       this.userService.postImages(dataPost).subscribe((res: any) => {
         this.uploadPost.reset();
+        this.showMessageDataSaved()
+
+        //TODO make functions that displays a message sayin: shared image
       }, (error) => {
         console.log(error);
+        this.errorPosting=true;
       })
     }
   }

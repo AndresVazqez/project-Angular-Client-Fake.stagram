@@ -11,7 +11,9 @@
     justify-content: center;
     border-bottom: 1px solid $color-light-gray;
     position: fixed;
-    background: #FFff;
+    top: 0;
+    background: #fff;
+
 
     &__main{
 
@@ -24,7 +26,6 @@
             width: 60%;
 
         }  
-
         
         img {
     
@@ -38,7 +39,8 @@
             right: 0;
             top: 0;
             bottom: 0;
-            margin: auto;   
+            margin: auto; 
+            z-index: -1;  
             
             p{
 
