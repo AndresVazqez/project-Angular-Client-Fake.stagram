@@ -1,0 +1,65 @@
+@import '../../../../../styles.scss';
+
+.c-editprofileheader {
+
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color-light-gray;
+
+    &__header {
+     
+        width: 60%;
+        
+        
+        @include desktop {
+            
+            width: 60%;
+            margin: 0 auto;
+        }
+    
+       
+        
+        &--item{           
+       
+            display: flex;
+            padding: 5px 0px 5px 5px;        
+            align-items: center;
+            justify-content: space-between;
+            
+            @include desktop {
+                
+                justify-content: space-between;
+                width: 55%;              
+             
+            }
+
+            button {
+    
+                background: none;
+                border: none;
+                margin: 10px; 
+                display: flex;
+                justify-content: center;
+                align-items: center;   
+                
+                &:hover{
+
+                    cursor: pointer;
+                }       
+    
+                img{
+    
+                    width: 20px;
+                }
+            }
+
+            p{                      
+            
+                font-weight: 600;
+                text-align: center;
+                margin: 0;
+               
+            }
+        }
+    }
+}

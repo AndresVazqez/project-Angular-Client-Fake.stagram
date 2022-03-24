@@ -1,0 +1,93 @@
+<div class="c-editprofileform" *ngIf="dataUser">
+
+    <form class="c-editprofileform__form" [formGroup]="formEditProfile" (ngSubmit)="sendDataEdited()">
+
+        <div class="c-editprofileform__form--photo">
+            <label class="c-editprofileform__form--photo--1" for="image">
+                <img src="{{imagePreview ? imagePreview : dataUser.image}}" alt="sss" />
+            </label>
+            <div class="c-editprofileform__form--photo--info">
+                <p>{{dataUser.username}}</p>
+                <label for="image">Cambiar foto del perfil</label>
+                <input (change)="imgSelect($event)" type="file" formControlName="image" id="image">
+            </div>
+        </div>
+
+        <div id="name" class="c-editprofileform__form--name">
+            <label for="name">Nombre</label>
+            <input type="text" formControlName="name" placeholder="Nombre completo"
+                (change)="detectsChangeOnInput($event)">
+            <p>Para ayudar a que las personas descubran tu cuenta,
+                usa el nombre por el que te conoce la gente, ya sea
+                tu nombre completo, apodo o nombre comercial.
+            </p>
+            <p>
+                Solo puedes cambiar tu nombre dos veces en un plazo de 14 días.
+            </p>
+        </div>
+
+        <div class="c-editprofileform__form--name">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" formControlName="username" (change)="detectsChangeOnInput($event)">
+            <span *ngIf="userNameError">El nombre de usuario ya existe. Intenta con otro. </span>
+            <p>
+                En la mayoría de los casos, podrás volver a cambiar tu nombre de
+                usuario a andresvazqez durante 14 días más.
+                <a href="">Más información</a>
+            </p>
+        </div>
+
+        <div class="c-editprofileform__form--name">
+            <label for="website">Sitio web</label>
+            <input type="text" formControlName="website" placeholder="Sitio Web"
+                (change)="detectsChangeOnInput($event)">
+            <label for="biography">Biografía</label>
+            <textarea formControlName="biography" (change)="detectsChangeOnInput($event)"></textarea>
+        </div>
+
+        <div class="c-editprofileform__form--name">
+            <h5>Información personal</h5>
+            <p>Proporciona tu información personal, incluso si la
+                cuenta se usa para un negocio, una mascota, etc. Esta
+                información no se incluirá en tu perfil público.
+            </p>
+
+            <label for="emailcontact">Correo electrónico</label>
+            <input type="email" formControlName="emailcontact" (change)="detectsChangeOnInput($event)">
+
+            <label for="telephone">Número de teléfono</label>
+            <input type="number" formControlName="telephone" (change)="detectsChangeOnInput($event)">
+
+            <label>Sexo</label>
+
+            <div class="c-editprofileform__form--name--gender">
+
+                <input type="radio" formControlName="gender" value="hombre" id="male"
+                    (change)="detectsChangeOnInput($event)">
+                <label for="male">Hombre</label>
+
+                <input type="radio" formControlName="gender" value="mujer" id="female"
+                    (change)="detectsChangeOnInput($event)">
+                <label for="female">Mujer</label>
+
+                <input type="radio" formControlName="gender" value="prefiero no espeficiar" id="other"
+                    (change)="detectsChangeOnInput($event)">
+                <label for="other">Prefiero no contestar</label>
+            </div>
+        </div>
+
+        <div class="c-editprofileform__form--btn">
+            <button class="{{formValid && formEditProfile.valid ? 'button' : 'buttonDisable' }}" [disabled]="!formValid">Guardar perfil</button>
+        </div>
+    </form>
+    <button>prueba</button>
+
+    <ng-container *ngIf="dataSubmitted">
+        <div class="c-editprofileform__datasaved">
+            <div class="c-editprofileform__datasaved--alert">
+                <p>Los cambios han sido guardados.</p>
+                <button [routerLink]="['/profile']">Aceptar</button>
+            </div>
+        </div>
+    </ng-container>
+</div>

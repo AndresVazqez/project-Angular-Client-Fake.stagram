@@ -1,19 +1,19 @@
 <nav class="c-navigation">
 
    <li class="c-navigation__icon">
-      <a [routerLink]="['/']">
+      <a routerLink="home">
          <img src="{{homeIcon.src}}" alt="{{homeIcon.alt}}">
       </a>
    </li>
 
    <li class="c-navigation__icon">
-      <a [routerLink]="['/search']" >
+      <a routerLink="search" >
          <img src="{{searchIcon.src}}" alt="{{searchIcon.alt}}">
       </a>
    </li>
 
-   <li [routerLink]="['/create']" class="c-navigation__icon">  
-      <a >
+   <li  class="c-navigation__icon">  
+      <a routerLink="create" >
          <img       
          src="{{addIcon.src}}" 
          alt="{{addIcon.alt}}">         
@@ -21,13 +21,13 @@
    </li>
 
    <li class="c-navigation__icon">
-      <a [routerLink]="['/activity']" >
+      <a routerLink="activity" >
          <img src="{{heartIcon.src}}" alt="{{heartIcon.alt}}">
       </a>
    </li>
 
    <li class="c-navigation__icon">
-      <a [routerLink]="['/profile']">
+      <a routerLink="profile">
          <img src="{{profileImg.src}}" alt="{{profileImg.alt}}">
       </a>
    </li>

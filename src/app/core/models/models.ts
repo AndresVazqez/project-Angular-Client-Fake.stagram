@@ -5,7 +5,13 @@ export interface User {
     email: String,
     password: String,
     image: String,
-    posts:[]    
+    posts:[],
+    website: string,
+    biography: string,
+    emailcontact: string,
+    telephone: string,
+    gender:string
+    _id: string    
 }
 
 export interface RegisterStatus {
@@ -45,4 +51,17 @@ export interface UserPost {
     _id: string,
     createdAt :string;
     
+}
+
+export interface UserEdit {
+
+    name: String, 
+    username: String,   
+    image: String,
+    website: string,
+    biography: string,
+    emailcontact: string,
+    telephone: string,
+    gender:string 
+
 }

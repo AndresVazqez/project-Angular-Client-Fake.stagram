@@ -1,10 +1,8 @@
-<div>
-    <h3>Crea un nuevo post.</h3>
-
+<app-createheader></app-createheader>
+<div class="c-create">
     <form [formGroup]="uploadPost" (ngSubmit)="uploadFile()">
         <label for="image" class="prueba" >           
-            <img src="{{imagePreview}}" alt="">
-            Sube una imagen
+            <img src="{{imagePreview ? imagePreview : 'https://i.ibb.co/R7pGHnm/no-image-available-icon-6.png'}}" alt="">    
         </label>
         <input formControlName="image" id="image" (change)="imgSelect($event)" type="file">
         <label for="">Añade una descripcion</label>

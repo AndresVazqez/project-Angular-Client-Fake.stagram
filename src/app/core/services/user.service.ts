@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User, UserLogin, UserPost, UserRegister } from '../models/models';
+import { User, UserEdit, UserLogin, UserPost, UserRegister } from '../models/models';
 import { Router } from '@angular/router';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
@@ -12,6 +12,7 @@ export class UserService {
 
   private endPoint:string = 'http://localhost:5000/api';
   public headers= new HttpHeaders().set('Content-Type', 'application/json');
+  public headersMulti= new HttpHeaders().set('Content-Type', 'multipart/form-data; boundary=----WebKitFormBoundaryvSUf6QmnbGz8AI30');
   public currentUser: User | null = null;
   public errorServer:string | null = null;
   
@@ -100,16 +101,17 @@ export class UserService {
   }
 
   public postImages ( post:FormData){
-
     let api = `${this.endPoint}/posts`;
     return this.http.post(api, post)
     .pipe(catchError(this.handleError))  
 
   }
 
-  public patchUser (id:string):void{
-
-    let api = `${this.endPoint}/users/${id}`
-
+  public patchUser (id:string, dataUser:FormData){
+    let api = `${this.endPoint}/users/${id}`;
+    return this.http.patch(api, dataUser)
+    .pipe(catchError(this.handleError))  
   }
+
+
 }

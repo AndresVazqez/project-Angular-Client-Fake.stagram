@@ -30,6 +30,10 @@ const routes: Routes = [
     canActivate: [UserGuard] 
   },
   {
+    path: 'edit', loadChildren: () => import('./pages/editprofilepage/editprofilepage.module').then(m => m.EditprofilepageModule),
+    canActivate: [UserGuard] 
+  },
+  {
     path: '**', redirectTo: '/home', pathMatch: 'full'
   },
   {

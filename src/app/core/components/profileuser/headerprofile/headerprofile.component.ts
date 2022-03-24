@@ -12,6 +12,7 @@ export class HeaderprofileComponent implements OnInit {
 
   public configIcon: Image;
   public exploreIcon:Image;
+  public logoFake: Image;
 
   constructor() { 
     
@@ -22,6 +23,10 @@ export class HeaderprofileComponent implements OnInit {
     this.exploreIcon = {
       src: "https://i.ibb.co/4W6tZTh/explorepeople.png",
       alt: "explere people icon"
+    }
+    this.logoFake = {
+      src: "https://i.ibb.co/hmtzv9w/fakestagram.png",
+      alt: "logo fakestagram"
     }
     
   }

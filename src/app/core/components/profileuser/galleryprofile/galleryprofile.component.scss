@@ -2,24 +2,63 @@
 
 .c-galleryprofile {
 
-    display: flex;
-    flex-wrap: wrap;
-  
-
-    &__post{
-        
-        width: 123px;
-        height: 123px;
-        overflow: hidden;
-        margin: 1px;
-        
-        img {
+    display: flex;   
+    width: 100%;
+    margin: 0 auto 60px;
+    justify-content: center;       
     
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+    
+    @include desktop {        
+   
+        width: 60%;       
+        
+    }
+    
+    &__container{
+        
+        flex-wrap: wrap;        
+        display: flex;
+        width: 100%;      
+      
+        
+        @include desktop {
+            
+            width: 80%;       
+
         }
 
-    }
 
+        &--post{
+
+            display: flex; 
+            aspect-ratio: 1/1;        
+            width: 33.33%;            
+                
+            
+            @include desktop {                
+                
+                width: 31%;
+                max-width: 293px;
+                margin: 1%;          
+         
+            }
+            
+    
+            &--img{
+    
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                margin: 1px;              
+        
+                           
+                img {        
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    background-position: center;
+                }
+            }   
+        }
+    } 
 }

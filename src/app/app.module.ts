@@ -13,6 +13,10 @@ import { AuthInterceptor } from './core/services/interceptors/authconfig.interce
 import { CreatepageComponent } from './pages/createpage/createpage.component';
 import { CreateComponent } from './core/components/create/create.component';
 import { GallerydetailsComponent } from './core/components/profileuser/galleryprofile/gallerydetails/gallerydetails.component';
+import { EditprofileheaderComponent } from './core/components/editprofile/editprofileheader/editprofileheader.component';
+import { EditprofileformComponent } from './core/components/editprofile/editprofileform/editprofileform.component';
+import { CreateheaderComponent } from './core/components/create/createheader/createheader.component';
+
 
 
 
@@ -26,10 +30,11 @@ import { GallerydetailsComponent } from './core/components/profileuser/gallerypr
     AppComponent,
     AboutComponent, 
     NavigationComponent,    
-    ActivityComponent,  
-    CreatepageComponent,
-    CreateComponent,
-    GallerydetailsComponent,    
+    ActivityComponent,    
+    GallerydetailsComponent,
+    
+    
+     
    
   ],
   imports: [

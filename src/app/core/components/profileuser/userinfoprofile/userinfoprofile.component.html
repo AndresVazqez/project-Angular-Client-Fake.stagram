@@ -1,19 +1,32 @@
-<div *ngIf="dataUser" class="c-userinfoprofile">
-    <div class="c-userinfoprofile__main">
+<div *ngIf="dataUser" (window:resize)="onResize($event)" class="c-userinfoprofile">
+ 
+        <div class="c-userinfoprofile__main">
+    
+            <div class="c-userinfoprofile__main--imgprofile">
+                <img src="{{dataUser.image ? dataUser.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="{{dataUser.username}}">
+            </div>
+            <div class="c-userinfoprofile__main--infoprofile">
+                <div class="c-userinfoprofile__main--infoprofile--item">
+                    <p>{{dataUser.username}}</p> 
+                    <button [routerLink]="['/edit']" > Editar perfil</button>
 
-        <div class="c-userinfoprofile__main--imgprofile">
-            <img src="{{dataUser.image ? dataUser.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="{{dataUser.username}}">
-        </div>
-        <div class="c-userinfoprofile__main--infoprofile">
-            <p>{{dataUser.username}}</p>            
-            <button> Editar perfil</button>           
-        </div>
-    </div>
+                </div>
+                <ng-container *ngIf="resolution > 992" >
+                    <div class="c-userinfoprofile__main--infoprofile--item1">
+                        <h5>{{dataUser.name}}</h5>
+                        <p>{{dataUser.biography}}</p>
+                    </div>
+                </ng-container>
+            </div>
 
-    <div class="c-userinfoprofile__name">
-        <h5>{{dataUser.name}}</h5>
-        <p>Madrid, Spain</p>
-    </div>
+        </div>
+    
+        <div class="c-userinfoprofile__name">
+            <h5>{{dataUser.name}}</h5>
+            <p>{{dataUser.biography}}</p>
+        </div>
+
+ 
     <div class="c-userinfoprofile__follow">
         <div class="c-userinfoprofile__follow--item">
             <span>{{dataUser.posts ? dataUser.posts.length : 0 }}</span>
@@ -29,6 +42,4 @@
         </div>
     
     </div>
-    <button (click)="mostrar()">mostrar</button>
-
 </div>

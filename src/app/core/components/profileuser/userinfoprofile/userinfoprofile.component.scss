@@ -2,21 +2,33 @@
 
 .c-userinfoprofile{
 
-    width: 100%; 
-    margin-top: 50px; 
+    width: 100%;     
+    margin: 60px auto 0; 
+    
+    @include desktop {
+        
+        margin: 40px auto; 
+        width: 60%;
+    }
 
     &__main{
 
         display: flex;
         width: 100%;
-        margin: 10px 0;       
+        margin: 10px 0;
+     
+        
+        @include desktop{
+
+            // align-items: center;
+        }
        
 
         &--imgprofile{
 
-            width: 77px;
-            min-width: 77px;
-            height: 77px;
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
             border: 1px solid $color-light-gray;
             border-radius: 50%; 
             margin: 18px;
@@ -24,6 +36,14 @@
             justify-content: center;
             align-items: center; 
             overflow: hidden;
+            
+            @include desktop {
+                
+                width: 160px;
+                min-width: 160px;
+                height: 160px;
+                
+            }
             
 
             img {
@@ -37,37 +57,93 @@
 
         &--infoprofile{
 
-            width: 100%;
-            padding-top: 5px;
-            
-            p{
+        
+
+            @include desktop {
                 
-                width: 250px;         
-                font-size: 28px;
-                margin: 4px 0;
-                overflow-y: hidden;
-               // text-overflow: ellipsis;
-                
-                &::-webkit-scrollbar{
-                    height: 0px;                    
-                }
+                margin: 20px 0 0 40px
+
             }
 
-            button{
-                border: 1px solid $color-light-gray;
-                background: none;
-                padding: 6px 9px;
-                width: 230px;
-                border-radius: 4px;
-                font-weight: 600;
-        
+
+            
+            &--item {
+                // width: 100%;
+                padding-top: 5px;
+         
+    
+                @include desktop {
+    
+                    margin: 4px 0;
+                    margin-top: 20px;    
+                    display: flex;
+                }
+                
+                p{
+                    
+                    width: 250px;         
+                    font-size: 28px;
+                    overflow-y: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 22px;
+                    
+                    &::-webkit-scrollbar{
+                        height: 0px;                    
+                    }
+                }
+    
+                button{
+                    border: 1px solid $color-light-gray;
+                    background: none;
+                    padding: 6px 9px;
+                    width: 230px;
+                    border-radius: 4px;
+                    font-weight: 600;
+                    
+                    @include desktop {
+                        
+                        width: 130px;
+                        
+                    }
+    
+                    &:hover{
+                        cursor: pointer;
+                    }
+            
+                }
+                
             }
+
+            &--item1{
+
+                width: 350px;
+                margin: 20px 0;               
+            }
+            
         }
     }
 
-    &__name{       
-     
-        margin: 0 20px;     
+    &__name{    
+        
+        width: 250px;     
+        margin: 0 20px;
+        
+        h5{
+            font-size: 14px;        
+        }
+        
+        p{
+            
+            font-size: 14px;        
+        }
+        
+        @include desktop {
+        
+            background: lightgreen;
+            display: none;
+         
+           
+        }
     
     }
 

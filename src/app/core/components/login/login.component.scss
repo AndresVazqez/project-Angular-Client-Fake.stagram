@@ -8,7 +8,7 @@
     align-items: center; 
     padding: 15px;
     position: relative;
-    height: 94vh;
+    height: 600px;
   
 
     &__lang{
@@ -194,7 +194,7 @@
         display: flex;
         flex-direction: column;   
         position: absolute;
-        bottom: 20px;  
+        bottom: 0;  
         
         span{
             

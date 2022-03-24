@@ -2,46 +2,61 @@
 
 .c-header {    
     width: 100%;    
-    display: flex;
-    justify-content: space-between;
+    display: flex;  
     padding: 10px 15px;
     align-items: center;
+    justify-content: center;
     border-bottom: 1px solid $color-light-gray;
+    background-color: rgb(255, 255, 255);  
 
-    &__logo {
-
-        width: 110px;
-        margin-bottom: -10px;
-    }
-
-    &__cam {
-        
-        background: none;
-        border: none;
+    &__main {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        width: 100%;
+        
+        @include desktop {
+            
+            width: 60%;
 
-        img{
-
-            width: 30px;
         }
         
-    }
-    
-    &__send {
+            &--logo {
         
-        background: none;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    
-        img{
-    
-            width: 24px;
-        }
+                width: 110px;
+                margin-bottom: -10px;
+            }
         
+            &--cam {
+                
+                background: none;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+        
+                img{
+        
+                    width: 30px;
+                }
+                
+            }
+            
+            &--send {
+                
+                background: none;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            
+                img{
+            
+                    width: 24px;
+                }
+                
+            }
+
+
     }
     
 

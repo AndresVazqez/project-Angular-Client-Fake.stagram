@@ -55,6 +55,7 @@ export class CreateComponent implements OnInit {
       dataPost.append('image', this.file),
         dataPost.append('caption', this.uploadPost.get('caption')?.value),
         this.userId && dataPost.append('userId', this.userId)
+        console.log(dataPost)
 
       this.userService.postImages(dataPost).subscribe((res: any) => {
         this.uploadPost.reset();

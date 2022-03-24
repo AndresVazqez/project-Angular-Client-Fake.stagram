@@ -1,13 +1,12 @@
 .main {
 
-    max-width: 375px;
-    //border: 4px solid rgb(201, 35, 35);
-    aspect-ratio: 9/16;
-    min-width: 375px;
-    height: 667px;   
-    overflow: overlay;
+    // max-width: 375px;
+    // //border: 4px solid rgb(201, 35, 35);
+    // aspect-ratio: 9/16;
+    // min-width: 375px;
+    // height: 667px;   
+ 
     background: #fff;
-    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -18,12 +17,27 @@
         flex-direction: column;
         height: 94%;     
         overflow: overlay;       
-
+        
         &::-webkit-scrollbar {
       
             width: 6px;
                      
         }
+    }
+    
+    .blockview{
+        
+        display: flex;
+        flex-direction: column;
+        height: 94%;     
+        overflow: hidden;   
+        
+        &::-webkit-scrollbar {
+      
+            width: 6px;
+                     
+        }
+
     }
     
 

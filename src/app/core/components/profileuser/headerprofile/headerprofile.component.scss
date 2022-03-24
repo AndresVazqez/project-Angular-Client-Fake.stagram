@@ -5,32 +5,50 @@
 
     display: flex;
     width: 100%;    
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 8px 15px;
     border-bottom: 1px solid $color-light-gray;
-    position: absolute;
+    position: fixed;
     height: 50px;
     top:0;
-    background: #ffff;
-
-    &__config{
-
-        margin: 2px;
-        
-        img{
-            width: 24px
-        }      
-        
-    }
+    background: #fff;
+   
     
     
-    &__explore{
+    &__header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;    
+        justify-content:space-between;
+        align-items: center;
+           
         
-        margin: 2px;
+        @include desktop {
+            
+            width: 60%;
+        }
+    
         
-        img{
-            width: 25px
+        &--config{
+    
+            margin: 2px;
+            
+            img{
+                width: 24px
+            }      
+            
+        }
+        
+        
+        &--explore{
+            
+            margin: 2px;
+            
+            img{
+                width: 25px
+            }
         }
     }
+
 }

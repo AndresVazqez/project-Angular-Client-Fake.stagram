@@ -1,15 +1,18 @@
 <div *ngIf="dataUser" class="c-gallerydetails">
 
     <div class="c-gallerydetails__header">
-        <div class="c-gallerydetails__header--item">
-            <button>
-                <img [routerLink]="['/profile']" src="{{arrowBack.src}}" alt="{{arrowBack.alt}}">
-            </button>
-            <div>
-                <p>Foto</p>
+        <div class="c-gallerydetails__header--bar">
+            <div class="c-gallerydetails__header--bar--item">
+                <button>
+                    <img routerLink="/profile" src="{{arrowBack.src}}" alt="{{arrowBack.alt}}">
+                </button>
+                <div>
+                    <p>Foto</p>
+                </div>
             </div>
         </div>
     </div>
+
 
     <div class="c-gallerydetails__user">
 

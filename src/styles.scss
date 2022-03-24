@@ -1,6 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+//Simple ITCSS in one page
 
-//Reset values
+
+// settings - variable color
+$color-gray: #8E8E8E;
+$color-btn-blue-disable: #B2DFFC;
+$color-light-gray: #dbdbdb;
+$color-btn-blue: rgb(0, 149, 246);
+$color-btn-blue-active: rgb(58, 176, 255);
+
+
+//tools
+$tablet: 768px;
+$desktop: 992px;
+$large: 1200px;
+
+@mixin tablet {
+  @media only screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width: $large) {
+    @content;
+  }
+}
+
+
+//------- Generics || Reset Values ---------//
 *{
     margin: 0;
     padding: 0;
@@ -9,6 +42,8 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  
 }
 
+
+//------- Elements---------//
 a {
     text-decoration: none;
     color: #000000;
@@ -17,21 +52,27 @@ a {
 body {
     
     margin: 0;
-    padding: 0;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    //border: 1px solid rgb(0, 0, 0);
-    height: 100vh;
-    background: #000000;
-    //background: #dadada;
+    padding: 0;
+    //background: #dadada; 
     
 }
 
-// variable color
+.blockscroll{
 
-$color-btn-blue: rgb(0, 149, 246);
-$color-gray: #8E8E8E;
-$color-btn-blue-disable: #B2DFFC;
-$color-light-gray: #dbdbdb;
-   
+  height: 100%;
+  overflow: hidden;
+}
+
+
+//------- Objects---------//
+
+
+
+//------- Components---------//
+
+
+
+//------- Trumps---------//
+
+
+

@@ -1,13 +1,18 @@
 <div class="c-headerprofile">
-    <div class="c-headerprofile__config">
-        <img src="{{configIcon.src}}" alt="{{configIcon.alt}}">
-    </div>
-    <div class="c-headerprofile__user">
-        <h5 *ngIf="dataUser">
-            {{dataUser.username}}  
-        </h5>
-    </div>
-    <div class="c-headerprofile__explore">
-        <img src="{{exploreIcon.src}}" alt="{{exploreIcon.alt}}">
+    <div class="c-headerprofile__header">        
+    
+        
+        <div class="c-headerprofile__header--config">
+            <img src="{{configIcon.src}}" alt="{{configIcon.alt}}">
+        </div>
+        <div class="c-headerprofile__header--user">
+            <h5 *ngIf="dataUser">
+                {{dataUser.username}}  
+            </h5>
+        </div>
+        <div class="c-headerprofile__header--explore">
+            <img src="{{exploreIcon.src}}" alt="{{exploreIcon.alt}}">
+        </div>
+
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Image, User } from 'src/app/core/models/models';
+
+import { User } from 'src/app/core/models/models';
 
 @Component({
   selector: 'app-userinfoprofile',
@@ -7,23 +8,34 @@ import { Image, User } from 'src/app/core/models/models';
   styleUrls: ['./userinfoprofile.component.scss']
 })
 export class UserinfoprofileComponent implements OnChanges {
+
+  @Input() dataUser!: User;
+  public resolution: any; 
+
+  constructor() {       
+    
+    this.resolution = window.innerWidth;
+  }
   
-  @Input() dataUser! : User;
+  onResize (e:any){
+    this.resolution = e.currentTarget.innerWidth;
+    console.log(e)
+    console.log(this.resolution)
+    
+  }
 
-  constructor() {
- 
-
-   }
 
 
-   public mostrar() {
+
+
+  public mostrar() {
 
     console.log(this.dataUser)
-   }
-   ngOnChanges():void {
+  }
+  ngOnChanges(): void {
 
-    
 
-   }
+
+  }
 
 }

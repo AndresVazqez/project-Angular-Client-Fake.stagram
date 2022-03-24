@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
 
       email: ['',[Validators.required, Validators.email]],
       name: ['',[Validators.required, Validators.minLength(1)]],
-      username: ['',[Validators.required, Validators.minLength(4)] ],      
+      username: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(20)] ],      
       password: ['',[Validators.required, Validators.pattern(this.passwordPattern)]],
       repeatPassword : ['',[Validators.required, Validators.maxLength(20), Validators.minLength(8)]], 
       
@@ -146,7 +146,7 @@ export class RegisterComponent implements OnInit {
   
   }
 
- public  async  registerUser ()  {
+ public registerUser ()  {
     
     this.submitted = true;    
     if(this.registerForm.valid){
@@ -164,9 +164,7 @@ export class RegisterComponent implements OnInit {
           if (res) {
             this.errorServer = '';
             this.registerForm.reset();  
-            this.loginUser(dataUser);
-
-   
+            this.loginUser(dataUser);   
           }
         }, (err) => { this.setError(err); })
     }

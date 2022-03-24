@@ -9,6 +9,7 @@ import { UserinfoprofileComponent } from 'src/app/core/components/profileuser/us
 import { GalleryprofileComponent } from 'src/app/core/components/profileuser/galleryprofile/galleryprofile.component';
 
 
+
 @NgModule({
   declarations: [
     ProfilepageComponent,
@@ -21,5 +22,6 @@ import { GalleryprofileComponent } from 'src/app/core/components/profileuser/gal
     CommonModule,
     ProfilepageRoutingModule
   ]
+ 
 })
 export class ProfilepageModule { }

@@ -1,0 +1,269 @@
+@import '../../../../../styles.scss';
+
+
+.c-editprofileform{
+    
+    position: relative;
+    width: 95%;  
+    margin: 0 auto;
+    
+    @include desktop {
+        
+        width: 60%;  
+
+    }
+    
+    
+    &__form{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+    
+        &--photo{
+
+            display: flex;
+            align-items: center;        
+            width: 90%;
+            margin: 15px 0;
+
+            &--1 {
+                
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 15px;
+                
+                @include desktop {
+                    
+                    width: 100px;
+                    height: 100px;
+                    
+
+                }
+
+                &:hover {
+
+                    cursor: pointer;
+                }
+
+                img {
+
+                    object-fit: cover;                    
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            &--info{
+                
+                p{
+                   font-weight: 600;
+                }
+                label {
+
+                    color: $color-btn-blue;
+                    font-size: 14px;
+                    font-weight: 600;
+                    &:hover {
+
+                        cursor: pointer;
+                    }
+                }
+
+                input{
+
+                    display: none;
+                }
+            }
+        }
+
+        &--name {
+
+        width: 90%;      
+        display: flex;
+        flex-direction: column;
+
+        span{
+
+            color: red;
+            font-size: 12px;
+        }
+
+          label {
+              
+              font-weight: 600;
+              margin-top: 5px;       
+              margin-bottom: 5px;       
+              
+            }
+            
+            input {
+                
+                border: 1px solid $color-light-gray;
+                padding: 6px;
+                margin-bottom: 5px; 
+                border-radius: 3px;
+                max-width: 355px;
+                
+                
+            }
+            
+            textarea{
+                
+                max-width: 355px;
+                border: 1px solid $color-light-gray;
+                resize: vertical;
+                min-height: 80px;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                padding: 6px 10px;
+
+                &::-webkit-scrollbar {
+      
+                    width: 10px;
+                    background: none;
+                    border: none;
+                                                 
+                }
+            }
+            p {
+                color: $color-gray;
+                font-size: 12px;
+                margin: 5px 0;
+
+                a {
+                    color: $color-btn-blue;
+                }
+            }
+
+            &--gender{              
+               
+                display: flex;
+                margin: 5px 0;
+
+                label {                 
+                    border: 1px solid $color-light-gray;
+                    border-radius: 4px;
+                    margin-right: 6px;
+                    padding: 5px 6px;
+                    font-size: 14px;
+                    color: $color-gray;
+                    
+                    &:hover{
+                        
+                        cursor: pointer;
+                    }                   
+                }
+                
+                input {
+                    
+                    display: none;
+                    
+                    &[type="radio"]:checked + label {
+                        
+                        background: $color-btn-blue;  
+                        border: 1px solid $color-btn-blue;                     
+                     
+                        color: #fff;
+                      
+                       
+                    }
+                }
+            }               
+        }
+
+        &--btn{
+          
+            width: 90%;
+            margin: 30px 0 50px;
+            
+            @include desktop{
+                
+                margin: 30px 0 100px;
+
+            }
+
+            .button {
+    
+                background: $color-btn-blue;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 4px;
+                color:#fff;
+                font-weight: 600;
+            }
+            
+            .buttonDisable {
+                
+                background: $color-btn-blue-disable;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 4px;
+                color:#fff;
+                font-weight: 600;
+
+            }
+        }
+    }
+
+    &__datasaved{
+
+        width: 100% ;
+        height: 100% ;
+        background: rgba(0, 0, 0, 0.116);
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        bottom: 0;
+        right: 0;        
+        margin: auto; 
+        z-index: 30;  
+        
+         
+
+        &--alert {
+
+            width: 280px;
+            height: 140px;
+            background: #fff;         
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            bottom: 0;
+            right: 0;        
+            margin: auto; 
+            z-index: 30;  
+              
+
+            p {
+
+                margin: 15px 0;
+            }
+            
+            button {
+                background: $color-btn-blue;
+                border: none;
+                padding: 8px;
+                border-radius: 4px;
+                color:#fff;
+                font-weight: 600;
+
+                &:active{
+                    background: $color-btn-blue-active;
+                }
+                &:hover {
+
+                    cursor: pointer;
+                }
+            }  
+        }
+    }
+}
