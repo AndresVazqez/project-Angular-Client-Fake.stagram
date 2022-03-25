@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserPost } from '../../models/models';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -8,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public posts:UserPost[]=[]; 
+
+  constructor(private userService: UserService ) {}
 
   ngOnInit(): void {
-  }
 
+    this.userService.getAllpost().subscribe((res:any)=> {
+      
+      this.posts = res     
+      console.log(res);
+
+    }, (err) => {
+      console.log(err)
+    })
+  }
 }

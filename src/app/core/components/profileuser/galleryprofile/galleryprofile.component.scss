@@ -61,4 +61,33 @@
             }   
         }
     } 
+
+    &__empty{
+
+        margin: 0 auto;    
+
+        h5 {
+
+            font-size: 14px;
+            text-align: center;
+            color: $color-gray
+        }
+
+        &--img{  
+            cursor: pointer;         
+                       
+            
+            img {
+
+                width: 250px;
+
+                @include desktop {
+
+                    width: 300px;
+
+                }
+    
+            }
+        }
+    }
 }

@@ -7,194 +7,253 @@
     flex-direction: column;
     align-items: center; 
     padding: 15px;
-    position: relative;
-    height: 600px;
-  
-
+    justify-content: space-between; 
+    height: 100vh;
+    
     &__lang{
 
         font-size: 14px;
         color: $color-gray    
     }
 
-    &__logo {
 
-        margin: 45px auto;    
-            
-        img{
-            width: 175px;
-        }
-    }
-
-    &__btnfb{
-
-        width: 80%;
-
-        button{
-            
-            width: 100%;            
-            border: none;
-            background: $color-btn-blue;
-            padding: 6px;
-            border-radius: 3px;
-            
-            &:active {
-
-                background: rgb(116, 193, 245);
-            }
-            
-            
-
-            a {
-                display: flex;
-                color: #ffff;
-                font-weight: 600;
-                font-size: 14px;
-                width: 100%;
-                justify-content: center;               
-
-                img{
-
-                    width: 18px;
-                    margin: 0 5px;
-                }
-            }
-        }
-    }
-
-    &__or {
-
+    &__main {
+     
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 80%;
-        margin: 25px 0;
-
-        div {
-
-            background-color: #dbdbdb;            
-            width: 42%;             
-            height: 1px;                    
-                   
-        }
-
-        span{
-
-            width: 16%;
-            text-align: center;
-            font-size: 13px;
-            color: $color-gray;
-            font-weight: 600; 
-        }
-    }
-
-    &__form{
-        
-        width: 80%;
-        display: flex;
         flex-direction: column;
+        width: 90%;
+        padding: 10px;
         
-        input{
-
-           margin: 4px 0;
-           border: 1px solid lightgrey;
-           border-radius: 3px;
-           padding: 8px;
-           background: #FAFAFA;
-
-           &::placeholder {
-
-             font-size: 12px;
-             color: $color-gray;  
-             
-           }
-
-           &:focus {
-
-            border: 1px solid rgb(110, 110, 110);               
-            outline: none;
+        @include desktop {
             
-        }
+            width: 40%;
+            border: 1px solid $color-light-gray;
+
         }
 
-        &--resetpass{
-           
-            display: flex;
-            justify-content: flex-end;
-            margin: 5px 0;
-
-            a{
-                color: $color-btn-blue;
-                font-size: 14px;
-                padding: 5px 0;
+    
+        &--logo {
+    
+            margin: 45px auto;    
+                
+            img{
+                width: 175px;
             }
         }
-
-        .button{
+    
+        &--btnfb{
+    
+            width: 100%;
+            max-width: 300px;
             
-            width: 100%;            
-            border: none;
-            background: $color-btn-blue;
-            padding: 6px;
-            border-radius: 3px;
-            color: #ffff;
-            font-weight: 600;
-            margin: 20px 0;
-            
-            &:active {
-
-                background: rgb(116, 193, 245);
-
-            }  
-        }
-        .buttondisable{
-            
-            width: 100%;            
-            border: none;
-            background: $color-btn-blue-disable;
-            padding: 6px;
-            border-radius: 3px;
-            color: #ffff;
-            font-weight: 600;
-            margin: 20px 0;
-            
-            &:active {
-
-                background: rgb(116, 193, 245);
-
-            }
-        }  
-
-        &--errorlogin{
-            
-            padding: 10px;
-            text-align: center;
-           
-            p {
-                color: rgb(255, 0, 0);
-                font-size: 14px;              
+            @include desktop {
+                
+                width: 45%;
+                min-width: 300px;
                 
             }
-        }
-    }
-
-    &__toregister{
-
-        p {
-            font-size: 12px;
-            a {
-
-                color: $color-btn-blue
+               
+    
+            button{
+                
+                width: 100%;            
+                border: none;
+                background: $color-btn-blue;
+                padding: 6px;
+                border-radius: 3px;
+                
+                &:active {
+    
+                    background: rgb(116, 193, 245);
+                }           
+                
+    
+                a {
+                    display: flex;
+                    color: #ffff;
+                    font-weight: 600;
+                    font-size: 14px;
+                    width: 100%;
+                    justify-content: center;               
+    
+                    img{
+    
+                        width: 18px;
+                        margin: 0 5px;
+                    }
+                }
             }
         }
-    }
+    
+        &--or {
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin: 25px 0;
+            max-width: 300px;
+
+            
+            @include desktop {            
+                
+                width: 45%;
+                min-width: 300px;
+
+            }
+    
+            div {
+    
+                background-color: #dbdbdb;            
+                width: 42%;             
+                height: 1px;                    
+                       
+            }
+    
+            span{
+    
+                width: 16%;
+                text-align: center;
+                font-size: 13px;
+                color: $color-gray;
+                font-weight: 600; 
+            }
+        }
+    
+        &--form{
+            
+            width: 100%;
+            display: flex;
+            flex-direction: column;  
+            max-width: 300px;
+
+
+            @include desktop {
+                
+                width: 45%;
+                min-width: 300px;
+
+                
+            }
+                 
+           
+            
+            input{
+    
+               margin: 4px 0;
+               border: 1px solid lightgrey;
+               border-radius: 3px;
+               padding: 8px;
+               background: #FAFAFA;
+    
+               &::placeholder {
+    
+                 font-size: 12px;
+                 color: $color-gray;  
+                 
+               }
+    
+               &:focus {
+    
+                border: 1px solid rgb(110, 110, 110);               
+                outline: none;
+                
+            }
+            }
+    
+            &--resetpass{
+               
+                display: flex;
+                justify-content: flex-end;
+                margin: 5px 0;
+    
+                a{
+                    color: $color-btn-blue;
+                    font-size: 14px;
+                    padding: 5px 0;
+                }
+            }
+    
+            .button{
+                
+                width: 100%;            
+                border: none;
+                background: $color-btn-blue;
+                padding: 6px;
+                border-radius: 3px;
+                color: #ffff;
+                font-weight: 600;
+                margin: 20px 0;
+                
+                &:active {
+    
+                    background: rgb(116, 193, 245);
+    
+                }  
+            }
+            .buttondisable{
+                
+                width: 100%;            
+                border: none;
+                background: $color-btn-blue-disable;
+                padding: 6px;
+                border-radius: 3px;
+                color: #ffff;
+                font-weight: 600;
+                margin: 20px 0;
+                
+                &:active {
+    
+                    background: rgb(116, 193, 245);
+    
+                }
+            }  
+    
+            &--errorlogin{
+                
+                padding: 10px;
+                text-align: center;
+               
+                p {
+                    color: rgb(255, 0, 0);
+                    font-size: 14px;              
+                    
+                }
+            }
+        }
+    
+        &--toregister{
+
+            margin: 20px 0;
+    
+            p {
+                font-size: 12px;
+                a {
+    
+                    color: $color-btn-blue
+                }
+            }
+        }
+
+
+
+    } 
+
+    
 
     &__footer{
         
         display: flex;
-        flex-direction: column;   
-        position: absolute;
-        bottom: 0;  
+        flex-direction: column;
+
+        @include desktop {
+
+            margin-bottom: 5vh;
+        }
+          
+      
         
         span{
             

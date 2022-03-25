@@ -14,13 +14,11 @@ export class UserService {
   public headers= new HttpHeaders().set('Content-Type', 'application/json');
   public headersMulti= new HttpHeaders().set('Content-Type', 'multipart/form-data; boundary=----WebKitFormBoundaryvSUf6QmnbGz8AI30');
   public currentUser: User | null = null;
-  public errorServer:string | null = null;
   
 
-  constructor( private http:HttpClient, private router:Router) {
+  constructor( private http:HttpClient, private router:Router) {    
     
-    this.errorServer = '';
-    
+     
     
    }
   
@@ -113,5 +111,13 @@ export class UserService {
     .pipe(catchError(this.handleError))  
   }
 
+  
+  public getAllpost () {  
+    let api = `${this.endPoint}/posts`;
+    return this.http.get(api)
+    .pipe(catchError(this.handleError))  
+  }
 
 }
+
+

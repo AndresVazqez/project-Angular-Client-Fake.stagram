@@ -1,2 +1,20 @@
 <app-header></app-header>
+
+<div *ngIf="posts">
+    <div *ngFor="let post of posts">
+        <div>
+            <div>
+                <img src="" alt="">
+            </div>
+            <div>
+                <ng-container *ngIf="post.userId">
+                    <p>{{post.userId.username ? post.userId.username : ''}}</p>            
+                </ng-container>            
+            </div>
+        </div>
+        <p>{{post.caption}}</p>
+     
+    </div>
+
+</div>
 <h1>Home Works!</h1>

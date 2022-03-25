@@ -3,38 +3,42 @@
     <div class="c-login__lang">
         <label for="">Español (España)</label>
     </div>
-    <div class="c-login__logo">
-        <img src="{{logoInsta.src}}" alt="{{logoInsta}}">
-    </div>
-    <div class="c-login__btnfb">
-        <button>
-            <a href=""><img src="{{logoFb.src}}" alt="{{logoFb.alt}}">{{btnName}}</a>
-        </button>
-    </div>
-    <div class="c-login__or">
-        <div></div>
-        <span>O</span>
-        <div></div>
-    </div>
-    <form class="c-login__form" [formGroup]="signinForm" (ngSubmit)="loginUser()">
-       
-        <input formControlName="email" type="text" placeholder="Usuario o Correo electrónico">
-      
-        <input formControlName="password" name="password" type="password" placeholder="Contraseña">
+    <div class="c-login__main">
+        <div class="c-login__main--logo">
+            <img src="{{logoInsta.src}}" alt="{{logoInsta}}">
+        </div>
+        <div class="c-login__main--btnfb">
+            <button>
+                <a href=""><img src="{{logoFb.src}}" alt="{{logoFb.alt}}">{{btnName}}</a>
+            </button>
+        </div>
+        <div class="c-login__main--or">
+            <div></div>
+            <span>O</span>
+            <div></div>
+        </div>
+        <form class="c-login__main--form" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+           
+            <input formControlName="email" type="text" placeholder="Usuario o Correo electrónico">
+          
+            <input formControlName="password" name="password" type="password" placeholder="Contraseña">
+    
+            <div class="c-login__main--form--resetpass">
+                <a href="">¿Has olvidado la contraseña?</a>
+            </div>
+            <div class="c-login__main--form--errorlogin" *ngIf="errorServer">
+                <p>{{errorServer}}</p>
+            </div>
+            <button [ngClass]="{'button' : signinForm.valid, 'buttondisable' : !signinForm.valid}" type="submit" [disabled]="!signinForm.valid">Iniciar sesión</button>
+        </form>
+        <div class="c-login__main--toregister">
+            <p>
+                ¿No tienes cuenta? <a [routerLink]="['/register']">Registrate</a>
+            </p>
+        </div>
 
-        <div class="c-login__form--resetpass">
-            <a href="">¿Has olvidado la contraseña?</a>
-        </div>
-        <div class="c-login__form--errorlogin" *ngIf="errorServer">
-            <p>{{errorServer}}</p>
-        </div>
-        <button [ngClass]="{'button' : signinForm.valid, 'buttondisable' : !signinForm.valid}" type="submit" [disabled]="!signinForm.valid">Iniciar sesión</button>
-    </form>
-    <div class="c-login__toregister">
-        <p>
-            ¿No tienes cuenta? <a [routerLink]="['/register']">Registrate</a>
-        </p>
     </div>
+   
     <div class="c-login__footer">
         <span>from</span>
         <img src="{{logoMeta.src}}" alt="{{logoMeta.alt}}">

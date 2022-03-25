@@ -4,7 +4,7 @@
 
         <div class="c-editprofileform__form--photo">
             <label class="c-editprofileform__form--photo--1" for="image">
-                <img src="{{imagePreview ? imagePreview : dataUser.image}}" alt="sss" />
+                <img src="{{imagePreview ? imagePreview : dataUser.image ? dataUser.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'}}" alt="sss" />
             </label>
             <div class="c-editprofileform__form--photo--info">
                 <p>{{dataUser.username}}</p>

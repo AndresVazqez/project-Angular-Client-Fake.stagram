@@ -47,8 +47,8 @@ export interface UserPost {
 
     image:File;
     caption:string,
-    userId:string | null;
-    _id: string,
+    userId:User;
+    _id: User,
     createdAt :string;
     
 }

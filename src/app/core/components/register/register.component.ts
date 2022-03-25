@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Image, User, UserLogin, UserRegister } from '../../models/models';
 import { UserService } from '../../services/user.service';
-import { comparePassword } from '../../services/validators/customValidators';
+import { comparePassword, cannotContainSpace } from '../../services/validators/customValidators';
 
 @Component({
   selector: 'app-register',
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
 
       email: ['',[Validators.required, Validators.email]],
       name: ['',[Validators.required, Validators.minLength(1)]],
-      username: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(20)] ],      
+      username: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(20), cannotContainSpace] ],      
       password: ['',[Validators.required, Validators.pattern(this.passwordPattern)]],
       repeatPassword : ['',[Validators.required, Validators.maxLength(20), Validators.minLength(8)]], 
       
@@ -121,10 +121,7 @@ export class RegisterComponent implements OnInit {
     } if (err === 'email and username are already in use') {
 
       this.errorServer = 'El email y el Username ya están en uso';
-    }
-    //  if (err.includes('invalid password')) {
-    //   this.errorServer = "la contraseña debe contener al menos una mayuscula, una minuscula, un numero, y un caracter especial debe tener entre 8 y 10 caracteres"
-    // }
+    }   
 
   }
 

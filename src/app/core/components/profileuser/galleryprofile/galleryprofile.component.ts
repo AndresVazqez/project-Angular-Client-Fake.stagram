@@ -9,7 +9,7 @@ import { User, UserPost } from 'src/app/core/models/models';
 export class GalleryprofileComponent implements OnChanges {
 
   @Input() dataUser!: User;
-  public posts!: UserPost[];
+  public posts!: UserPost[];  
 
 
 

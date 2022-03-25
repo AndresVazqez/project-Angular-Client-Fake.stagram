@@ -1,11 +1,23 @@
 <div class="c-galleryprofile " *ngIf="dataUser">
     <div class="c-galleryprofile__container ">
-        <div class="c-galleryprofile__container--post " *ngFor="let post of posts" routerLink="{{post._id}}">        
-           <div class="c-galleryprofile__container--post--img">
-               <img src="{{post.image}}" alt="{{post.caption}}">
-    
-           </div>
-        </div>  
+        <ng-container *ngIf="posts.length; else emptyGallery" >
+            <div class="c-galleryprofile__container--post " *ngFor="let post of posts" routerLink="{{post._id}}">        
+               <div class="c-galleryprofile__container--post--img">
+                   <img src="{{post.image}}" alt="{{post.caption}}">
+        
+               </div>
+            </div>
+        </ng-container>
+        <ng-template #emptyGallery>
+            <div class="c-galleryprofile__empty" >
+                <h5>Comienza a compartir tus fotos...</h5>
+                <div class="c-galleryprofile__empty--img">
+                    <img routerLink="/create" src="https://i.ibb.co/q1gQj4t/addphoto.png" alt="no image">
+
+                </div>
+
+            </div>            
+        </ng-template>
 
     </div>
 </div>  

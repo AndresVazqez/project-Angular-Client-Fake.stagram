@@ -41,8 +41,11 @@
         <input formControlName="username" 
         type="text" 
         name="username"
-        placeholder="Nombre de usuario" 
+        placeholder="Nombre de usuario"         
         >
+        <div *ngIf="!registerForm.get('username')?.valid && registerForm.get('username')?.dirty ">
+            <span>No debes dejar espacios en blanco. </span>
+        </div>
         
         <input formControlName="password" 
         (click)="showPatternPassword(true)"
