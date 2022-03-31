@@ -10,35 +10,28 @@ import { UserService } from 'src/app/core/services/user.service';
 export class ProfilepageComponent implements OnInit {
 
   public dataUser!: User;
-  public userId!: string | null;
+  public userName!: string | null;
+
 
   constructor(private userService: UserService) {
+    
+    this.userName = localStorage.getItem('username')
 
-    this.userId = localStorage.getItem('id')
 
-
-  }
-
-  public verData() {
-
-  }
-
-  getUser(id: string) {
-
-  }
-
+  }  
 
   ngOnInit(): void {
 
+    if (this.userName) {
+      this.userService.getUser(this.userName).subscribe({
+        next: (res) => {          
+          const apiUser: User = res[0]
+          this.dataUser = apiUser
+          console.log(apiUser)
 
-    if (this.userId) {
-      this.userService.getUser(this.userId).subscribe((res) => {
-        const apiUser: User = res
-        this.dataUser = apiUser
-        console.log(apiUser)
-
-      }, (err) => {
-        console.log(err)
+        }, error: (err) => {
+          console.log(err)
+        }
       })
     }
   }

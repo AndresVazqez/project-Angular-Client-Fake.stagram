@@ -10,12 +10,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptors';
-import { CreatepageComponent } from './pages/createpage/createpage.component';
-import { CreateComponent } from './core/components/create/create.component';
 import { GallerydetailsComponent } from './core/components/profileuser/galleryprofile/gallerydetails/gallerydetails.component';
-import { EditprofileheaderComponent } from './core/components/editprofile/editprofileheader/editprofileheader.component';
-import { EditprofileformComponent } from './core/components/editprofile/editprofileform/editprofileform.component';
-import { CreateheaderComponent } from './core/components/create/createheader/createheader.component';
+import { PostspageComponent } from './pages/postspage/postspage.component';
+import { PostsComponent } from './core/components/posts/posts.component';
 
 
 
@@ -31,9 +28,7 @@ import { CreateheaderComponent } from './core/components/create/createheader/cre
     AboutComponent, 
     NavigationComponent,    
     ActivityComponent,    
-    GallerydetailsComponent,
-    
-    
+    GallerydetailsComponent, PostspageComponent, PostsComponent,    
      
    
   ],
@@ -43,6 +38,7 @@ import { CreateheaderComponent } from './core/components/create/createheader/cre
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+  
   ],
   providers: [   
      UserService, 

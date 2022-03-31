@@ -1,20 +1,24 @@
 <app-header></app-header>
+<div *ngIf="posts" class="c-home">
 
-<div *ngIf="posts">
-    <div *ngFor="let post of posts">
-        <div>
-            <div>
-                <img src="" alt="">
-            </div>
-            <div>
-                <ng-container *ngIf="post.userId">
-                    <p>{{post.userId.username ? post.userId.username : ''}}</p>            
-                </ng-container>            
-            </div>
+    <div class="c-home__container" *ngFor="let post of posts">
+
+        <div class="c-home__container--user">
+            <div   class="c-home__container--user--img">
+                <img  [routerLink]="['/user', post.userId.username]" src="{{post.userId.image}}" alt="{{post.caption}}" id="{{post.userId.username}}">
+            </div>        
+           <a [routerLink]="['/user', post.userId.username]"><p >{{post.userId.username}}</p></a>                 
+        </div> 
+
+        <div class="c-home__container--img">
+            <img src="{{post.image}}" alt="{{post.userId.name}}">
         </div>
-        <p>{{post.caption}}</p>
-     
+        
+        <div class="c-home__container--caption">
+            <p [routerLink]="['/user', post.userId.username]">{{post.userId.username}}</p> 
+            <span>{{post.caption}}</span>            
+        </div>
+        <time>{{post.createdAt}} </time>           
     </div>
 
 </div>
-<h1>Home Works!</h1>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserPost } from '../../models/models';
+import { User } from '../../models/models';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,13 +10,14 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-
+  
+  @Input() dataUser!:User;  
   public uploadPost: FormGroup;
   public imagePreview: string;
   public file!: File;
-  public userId: string | null;
-  public submitted: boolean= false;
+  public submitted: boolean = false;
   public errorPosting: boolean = false;
+  public isLoading: boolean = false;
 
 
   constructor(
@@ -31,8 +32,7 @@ export class CreateComponent implements OnInit {
       userId: ['']
 
     })
-    this.imagePreview = '';
-    this.userId = localStorage.getItem("id");
+    this.imagePreview = '';   
   }
 
   //mirar luego como se pasa el evento sin ser de tipo any
@@ -51,39 +51,45 @@ export class CreateComponent implements OnInit {
 
   showMessageDataSaved() {
 
-    this.submitted = true;
-    this.submitted && document.body.classList.add('blockscroll')
-    
-    setTimeout(() => {  
-      this.router.navigate(['/profile']);   
-      document.body.classList.remove('blockscroll');   
-      this.submitted = false;
+    setTimeout(()=>{
+      this.isLoading=false;
+      this.submitted = true   
+      document.body.classList.add('blockscroll')      
+      setTimeout(() => {
+        this.router.navigate(['/profile']);
+        document.body.classList.remove('blockscroll');
+        this.submitted = false;  
+      }, 5000)
+    },4000)
 
-    }, 4000)
 
   }
 
   public uploadFile() {
 
     if (this.uploadPost.valid) {
-
+      this.isLoading = true;
       const dataPost = new FormData();
       dataPost.append('image', this.file),
         dataPost.append('caption', this.uploadPost.get('caption')?.value),
-        this.userId && dataPost.append('userId', this.userId)
-        console.log(dataPost)
+        this.dataUser._id && dataPost.append('userId', this.dataUser._id)
+      console.log(dataPost)
 
-      this.userService.postImages(dataPost).subscribe((res: any) => {
-        this.uploadPost.reset();
-        this.showMessageDataSaved()
+      this.userService.postImages(dataPost).subscribe({
+        next: (res: any) => {
+          this.uploadPost.reset();
+          this.showMessageDataSaved()
 
-        //TODO make functions that displays a message sayin: shared image
-      }, (error) => {
-        console.log(error);
-        this.errorPosting=true;
+        },
+        error: (error) => {
+          console.log(error);
+          this.errorPosting = true;
+        }
       })
     }
+
   }
+
 
   ngOnInit(): void {
 

@@ -44,7 +44,8 @@ export interface UserRegister {
 }
 
 export interface UserPost {
-
+    
+    map: any;
     image:File;
     caption:string,
     userId:User;

@@ -9,20 +9,29 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public posts: any[] = [];
 
-  public posts:UserPost[]=[]; 
+  constructor(private userService: UserService) { }
 
-  constructor(private userService: UserService ) {}
+  ngOnInit() {
 
-  ngOnInit(): void {
+    this.userService.getAllpost().subscribe({
+      next: (res: any) => {
+        const apiUserPosts: any = res;
+        const postFormatted = apiUserPosts.map((post: UserPost) => {
 
-    this.userService.getAllpost().subscribe((res:any)=> {
-      
-      this.posts = res     
-      console.log(res);
+           post.createdAt = this.userService.getDate(post);
+        })
+        this.posts = apiUserPosts.reverse();
+        console.log(this.posts)
 
-    }, (err) => {
-      console.log(err)
+      },
+      error: (err) => {
+        console.log(err)
+      }
     })
   }
+
+
 }
+

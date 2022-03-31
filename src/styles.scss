@@ -3,8 +3,9 @@
 
 // settings - variable color
 $color-gray: #8E8E8E;
-$color-btn-blue-disable: #B2DFFC;
 $color-light-gray: #dbdbdb;
+$color-ultralight-gray: #fdfdfd;
+$color-btn-blue-disable: #B2DFFC;
 $color-btn-blue: rgb(0, 149, 246);
 $color-btn-blue-active: rgb(58, 176, 255);
 
@@ -49,11 +50,13 @@ a {
     color: #000000;
 }
 
+
 body {
     
     margin: 0;
     padding: 0;
-    //background: #dadada; 
+    background: rgb(44, 109, 131);
+    
     
 }
 

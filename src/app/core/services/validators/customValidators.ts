@@ -22,7 +22,7 @@ export function comparePassword(
 }
 
 export function cannotContainSpace(control: AbstractControl): ValidationErrors | null {
-   let invalid = / /;
+   const invalid = / /;
   if (invalid.test(control.value)) {
       return { cannotContainSpace: true }
     }

@@ -48,19 +48,19 @@ export class EditprofileformComponent implements OnChanges {
     window.scrollTo(0, 0);
   }
 
-    
 
- 
 
-  
+
+
+
   showMessageDataSaved() {
 
     this.dataSubmitted = true;
     this.dataSubmitted && document.body.classList.add('blockscroll')
-    
-    setTimeout(() => {  
-      this.router.navigate(['/profile']);   
-      document.body.classList.remove('blockscroll');   
+
+    setTimeout(() => {
+      this.router.navigate(['/profile']);
+      document.body.classList.remove('blockscroll');
 
     }, 4000)
 
@@ -83,19 +83,19 @@ export class EditprofileformComponent implements OnChanges {
         console.log(user);
 
 
-      this.userService.patchUser(this.dataUser._id, user).subscribe((res) => {
-
-        this.showMessageDataSaved()
-
-        console.log(res);
-      }, (error) => {
-
-        this.userNameError = true;
-        console.log(error)
-
+        console.log(this.dataUser._id)
+      this.userService.patchUser(this.dataUser._id, user).subscribe({
+        next: (res) => {
+          this.showMessageDataSaved()
+          console.log(res);
+        }, error: (error) => {
+          this.userNameError = true;
+          console.log(error)
+        }        
       })
-
     }
+
+
 
   }
 

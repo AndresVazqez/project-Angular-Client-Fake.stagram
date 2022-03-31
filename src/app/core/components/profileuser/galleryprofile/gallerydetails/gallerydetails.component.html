@@ -1,10 +1,10 @@
-<div *ngIf="dataUser" class="c-gallerydetails">
+<div class="c-gallerydetails">
 
     <div class="c-gallerydetails__header">
         <div class="c-gallerydetails__header--bar">
             <div class="c-gallerydetails__header--bar--item">
                 <button>
-                    <img routerLink="/profile" src="{{arrowBack.src}}" alt="{{arrowBack.alt}}">
+                    <img (click)="goTo(post.userId.username)" src="{{arrowBack.src}}" alt="{{arrowBack.alt}}">
                 </button>
                 <div>
                     <p>Foto</p>
@@ -14,15 +14,15 @@
     </div>
 
 
-    <div class="c-gallerydetails__user">
+    <div *ngIf="post" class="c-gallerydetails__user">
 
         <div class="c-gallerydetails__user--profile">
 
-            <div class="c-gallerydetails__user--profile--img">
-                <img src="{{dataUser.image ? dataUser.image : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="userimage">
+            <div  class="c-gallerydetails__user--profile--img">
+                <img src="{{post.userId.image ? post.userId.image  : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="userimage">
             </div>
             <div class="c-gallerydetails__user--profile--parag">
-                <strong routerLink="/profile">{{dataUser.username}} </strong>
+                <strong (click)="goTo(post.userId.username)">{{post.userId.username}} </strong>
             </div>
 
         </div>
@@ -38,7 +38,7 @@
             <img src="{{post.image}}" alt="{{post.caption}}">
         </figure>
         <figcaption>
-            <strong>{{dataUser.username}} </strong> <span>{{post.caption}}</span>
+            <strong (click)="goTo(post.userId.username)">{{post.userId.username}} </strong> <span>{{post.caption}}</span>
         </figcaption>
         <time datetime="">
             {{date}}

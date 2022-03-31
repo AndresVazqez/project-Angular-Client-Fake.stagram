@@ -9,32 +9,36 @@ import { UserService } from '../../services/user.service';
 })
 export class EditprofileComponent implements OnInit {
 
-  
+
   public dataUser!: User;
-  public userId!:string | null;
+  public userName!: string | null;
 
 
-  constructor(private userService:UserService) { 
+  constructor(private userService: UserService) {
+
+    this.userName = localStorage.getItem('username');
     
-    this.userId = localStorage.getItem('id');
-    console.log(this.userId)   
-   
-    
+    console.log(this.userName)
+
+
   }
-  
-  ngOnInit(): void {
-    
-    if (this.userId) {
-      this.userService.getUser(this.userId).subscribe((res) => {
-        const apiUser: User = res
-        this.dataUser = apiUser
-        console.log(apiUser)
 
-      }, (err) => {
-        console.log(err)
+  ngOnInit(): void {
+
+    if (this.userName) {
+      this.userService.getUser(this.userName).subscribe({
+        next: (res) => {
+          const apiUser: User = res[0]
+          this.dataUser = apiUser
+          console.log(apiUser)
+
+        },
+        error: (err) => {
+          console.log(err)
+        }
       })
     }
   }
-
+  
 
 }

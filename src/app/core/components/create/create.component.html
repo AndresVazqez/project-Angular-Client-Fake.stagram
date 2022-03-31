@@ -16,7 +16,7 @@
             </span>
         </ng-container>
         <div>
-            <button class="{{ uploadPost.valid ? ' ' : 'buttondisable' }}" type="submit">Compartir</button>
+            <button class="{{ uploadPost.valid ? ' ' : 'buttondisable' }}" type="submit" [disabled]="submitted">Compartir</button>
         </div>
     </form> 
     
@@ -25,6 +25,14 @@
             <div class="c-create__submitted--msg">
                 <span>Imagen compartida con exito!</span>
                 <button routerLink="/profile">Aceptar</button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+        <div  class="isloading">
+            <div class="isloading__frame">
+                <img src="https://i.ibb.co/CH5hZWH/loading.gif" alt="is loading">
+
             </div>
         </div>
     </ng-container>

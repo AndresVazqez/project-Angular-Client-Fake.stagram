@@ -1,1 +1,28 @@
-<p>searchpage works!</p>
+<div class="searchpage">
+    <form class="searchpage__form" [formGroup]="searchForm">
+        <input formControlName="username" type="text" placeholder="Busca por nombre de usuario"
+            (ngModelChange)="searchUser($event)">
+        <ng-container *ngIf="onInput">
+            <button (click)="resetInput()">Cancelar</button>
+        </ng-container>
+    </form>
+
+
+    <ng-container *ngIf="searchResult">
+        <div class="searchpage__result">
+
+            <div class="searchpage__result--user" *ngFor="let user of searchResult"
+                [routerLink]="['/user', user.username]">
+                <div class="searchpage__result--user--img">
+                    <img src="{{user.image}}" alt="{{user.username}}">
+                </div>
+                <div class="searchpage__result--user--info">
+                    <p>{{user.username}}</p>
+                    <span>{{user.biography}}</span>
+                </div>
+            </div>
+
+        </div>
+    </ng-container>
+
+</div>

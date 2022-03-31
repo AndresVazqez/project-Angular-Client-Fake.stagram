@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Image } from 'src/app/core/models/models';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Image, RegisterStatus } from 'src/app/core/models/models';
 
 @Component({
   selector: 'app-navigation',
@@ -7,6 +7,7 @@ import { Image } from 'src/app/core/models/models';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  @Output() public emmitStatusRegistered = new EventEmitter<RegisterStatus>();
   
   
   public homeIcon:Image;

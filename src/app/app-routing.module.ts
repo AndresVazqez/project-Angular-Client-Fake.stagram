@@ -34,11 +34,20 @@ const routes: Routes = [
     canActivate: [UserGuard] 
   },
   {
+    path: 'user', loadChildren: () => import('./pages/userspage/userspage.module').then(m => m.UserspageModule),
+    canActivate: [UserGuard] 
+  },
+  {
+    path: 'post', loadChildren: () => import('./pages/postspage/postspage.module').then(m => m.PostspageModule),
+    canActivate: [UserGuard] 
+  },
+  {
     path: '**', redirectTo: '/home', pathMatch: 'full'
   },
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
   },
+  
 ];
 
 @NgModule({

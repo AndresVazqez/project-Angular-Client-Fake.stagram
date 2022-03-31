@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SearchpageRoutingModule } from './searchpage-routing.module';
 import { SearchpageComponent } from './searchpage.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SearchpageComponent } from './searchpage.component';
   ],
   imports: [
     CommonModule,
-    SearchpageRoutingModule
+    SearchpageRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class SearchpageModule { }

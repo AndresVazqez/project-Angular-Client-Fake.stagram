@@ -13,10 +13,10 @@ export class UserService {
   private endPoint:string = 'http://localhost:5000/api';
   public headers= new HttpHeaders().set('Content-Type', 'application/json');
   public headersMulti= new HttpHeaders().set('Content-Type', 'multipart/form-data; boundary=----WebKitFormBoundaryvSUf6QmnbGz8AI30');
-  public currentUser: User | null = null;
+ 
   
 
-  constructor( private http:HttpClient, private router:Router) {    
+  constructor( private http:HttpClient, private router:Router) {   
     
      
     
@@ -37,7 +37,11 @@ export class UserService {
       //error por parte del server
       console.log(error)     
       message = error.error;
-      console.log(error.error)     
+      console.log(error.error) 
+      
+      if(error.error === 'expired or invalid token'){
+        localStorage.clear();   
+      }   
     
     }
 
@@ -112,10 +116,24 @@ export class UserService {
   }
 
   
-  public getAllpost () {  
+  public getAllpost (): Observable<UserPost[]> {  
     let api = `${this.endPoint}/posts`;
-    return this.http.get(api)
+    return this.http.get<UserPost[]>(api)
     .pipe(catchError(this.handleError))  
+  }
+
+  public getDate(post:UserPost) :string {
+
+    let months = ['diciembre', 'enero', 'febrero', 'marzo', 
+    'abril', 'mayo', 'junio', 'julio',
+    'agosto', 'septiembre', 'octubre', 'noviembre']
+    let postSplited = post.createdAt.split('-') 
+    let day = postSplited[2].substring(0,2)
+    let year = postSplited[0]
+    let month = months[parseInt(postSplited[1])]   
+    
+    return `${day} de ${month} de ${year}`
+
   }
 
 }

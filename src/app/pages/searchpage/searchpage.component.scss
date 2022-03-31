@@ -1,0 +1,114 @@
+@import '../../../styles.scss';
+
+.searchpage {
+
+    display: flex;
+    flex-direction: column;
+
+    &__form {
+
+        width: 100%;
+        border-bottom: 1px solid $color-light-gray;      
+        padding: 8px;
+        display: flex;      
+        justify-content: center;      
+
+        input {
+            border-radius: 5px;
+            padding: 8px;                  
+            width: 90%;
+            max-width: 350px;
+            outline: none;
+            border: 1px solid $color-light-gray;
+            
+            &::placeholder{
+
+                text-align: center;
+                color: $color-gray;
+                font-size: 14px;
+            }
+            &:focus {
+
+                background: $color-ultralight-gray;
+            }          
+            
+        }
+    
+        button {
+
+            border: none;    
+            background: none;  
+            font-weight: 600;  
+            margin: 0 8px;
+
+        }
+    }   
+    &__result{        
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background: $color-ultralight-gray;
+        border-radius: 4px;
+       
+        
+        @include desktop {
+            
+            width: 450px;
+            margin: 0 auto;            
+        }
+    
+        
+
+        &--user{
+
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin: 12px;
+            
+            &:hover {
+
+                cursor: pointer;
+            }
+            
+            
+            &--img{
+
+                width: 54px;
+                height: 54px;
+                border-radius: 50%;
+                overflow: hidden;                
+
+                img {
+
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+    
+    
+            }
+            
+            
+            
+            &--info{
+
+                margin-left: 12px;
+
+                p {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+
+                span {
+
+                    font-size: 14px;
+                    color: $color-gray;
+                }
+    
+    
+            }
+        }
+        
+    } 
+}
