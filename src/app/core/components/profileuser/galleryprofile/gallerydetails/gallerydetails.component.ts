@@ -15,12 +15,14 @@ export class GallerydetailsComponent implements OnInit {
   public arrowBack: Image;
   public optionsIcon: Image;
   public date: string = '';
+  public prevPage:string; 
 
+  constructor(private router: Router,
+     private userService: UserService, 
+     private activateRoute: ActivatedRoute,
+     private route: ActivatedRoute) {
 
-
-  constructor(private router: Router, private userService: UserService, private activateRoute: ActivatedRoute) {
-
-    
+    this.prevPage = this.route.snapshot.queryParams['accion'];
     this.arrowBack = {
 
       src: 'https://i.ibb.co/yScb1Zw/backarrow.png',
@@ -30,33 +32,17 @@ export class GallerydetailsComponent implements OnInit {
 
       src: 'https://i.ibb.co/NN25XRz/more.png',
       alt: 'options icon'
-    }    
-
-    
+    }        
 
   }  
 
-   goTo (username:any) {
-
-   
-      this.router.navigate([`/user/${username}`])     
-    
-
+   goTo (username:any) { 
+     if(this.prevPage){
+       this.router.navigate(['/activity'])
+     } else {
+       this.router.navigate([`/user/${username}`])  
+     } 
   }
-
-  getDate(post: UserPost) {
-
-    let months = ['diciembre', 'enero', 'febrero', 'marzo',
-      'abril', 'mayo', 'junio', 'julio',
-      'agosto', 'septiembre', 'octubre', 'noviembre']
-    let postSplited = post.createdAt.split('-')
-    let day = postSplited[2].substring(0, 2)
-    let year = postSplited[0]
-    let month = months[parseInt(postSplited[1])]
-
-    this.date = `${day} de ${month} de ${year}`
-  }
-
 
 
   ngOnInit(): void {
@@ -67,7 +53,7 @@ export class GallerydetailsComponent implements OnInit {
 
         const apiPost: UserPost = res;
         this.post = apiPost;
-        this.getDate(apiPost)
+        this.date = this.userService.getDate(apiPost)      
       })
     })
   

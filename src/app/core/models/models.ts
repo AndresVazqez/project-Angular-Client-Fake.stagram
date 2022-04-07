@@ -10,8 +10,9 @@ export interface User {
     biography: string,
     emailcontact: string,
     telephone: string,
-    gender:string
-    _id: string    
+    gender:string,
+    _id: string,
+    liked:[]   
 }
 
 export interface RegisterStatus {
@@ -45,12 +46,14 @@ export interface UserRegister {
 
 export interface UserPost {
     
-    map: any;
-    image:File;
+    map: any,
+    image:File,
     caption:string,
-    userId:User;
-    _id: User,
-    createdAt :string;
+    userId:User,
+    _id: string,
+    createdAt :string,
+    likes:string[],
+    likeByUser: boolean;
     
 }
 
@@ -66,3 +69,4 @@ export interface UserEdit {
     gender:string 
 
 }
+

@@ -15,16 +15,13 @@
 
 
     <div *ngIf="post" class="c-gallerydetails__user">
-
         <div class="c-gallerydetails__user--profile">
-
             <div  class="c-gallerydetails__user--profile--img">
                 <img src="{{post.userId.image ? post.userId.image  : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="userimage">
             </div>
             <div class="c-gallerydetails__user--profile--parag">
                 <strong (click)="goTo(post.userId.username)">{{post.userId.username}} </strong>
             </div>
-
         </div>
 
         <div class="c-gallerydetails__user--options">
@@ -37,6 +34,7 @@
         <figure>
             <img src="{{post.image}}" alt="{{post.caption}}">
         </figure>
+    
         <figcaption>
             <strong (click)="goTo(post.userId.username)">{{post.userId.username}} </strong> <span>{{post.caption}}</span>
         </figcaption>
@@ -44,7 +42,6 @@
             {{date}}
         </time>
      
-        <!-- <button (click)="mostrarData()">mostrar</button> -->
     </div>
     <ng-template  #nopost>
         <div class="c-gallerydetails__nopost" > 

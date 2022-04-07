@@ -136,6 +136,16 @@ export class UserService {
 
   }
 
+  public likePost (idpost: string, userId:any) {
+    let api = `${this.endPoint}/posts/like/${idpost}`
+    return this.http.patch(api, userId).pipe(catchError(this.handleError))
+  }
+
+  public unLikePost (idpost: string, userId:any) {    
+    let api = `${this.endPoint}/posts/unlike/${idpost}`
+    return this.http.patch(api, userId).pipe(catchError(this.handleError))
+  }
+
 }
 
 

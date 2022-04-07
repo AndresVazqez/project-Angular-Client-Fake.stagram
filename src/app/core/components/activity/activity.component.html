@@ -1,0 +1,24 @@
+<div class="c-activity">
+
+    <div class="c-activity__header">
+        <div class="c-activity__header--title">
+            <p>Publicaciones que te han gustado.</p>
+        </div>
+    </div>
+
+    <ng-container *ngIf="liked; else noLiked">
+        <div class="c-activity__gallery">
+            <div class="c-activity__gallery--main">
+                <div class="c-activity__gallery--main--img" *ngFor="let like of liked">
+                    <img [routerLink]="['/post',like._id]"
+                    [queryParams]="{accion:'activity'}" 
+                    src="{{like.image}}" alt="{{like.caption}}">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noLiked>
+        <p>no hay me gusta!</p>
+    </ng-template>
+
+</div>

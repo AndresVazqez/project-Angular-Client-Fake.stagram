@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User, UserEdit } from 'src/app/core/models/models';
+import { User } from 'src/app/core/models/models';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({

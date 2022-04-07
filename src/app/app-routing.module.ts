@@ -18,7 +18,7 @@ const routes: Routes = [
     canActivate: [UserGuard] 
   },
   {
-    path: 'activity', loadChildren: () => import('./pages/activity/activity.module').then(m => m.ActivityModule),
+    path: 'activity', loadChildren: () => import('./pages/activitypage/activitypage.module').then(m => m.ActivitypageModule),
     canActivate: [UserGuard] 
   },
   {
@@ -40,6 +40,7 @@ const routes: Routes = [
   {
     path: 'post', loadChildren: () => import('./pages/postspage/postspage.module').then(m => m.PostspageModule),
     canActivate: [UserGuard] 
+    //TODO look this route
   },
   {
     path: '**', redirectTo: '/home', pathMatch: 'full'

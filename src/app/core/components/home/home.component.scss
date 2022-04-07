@@ -58,16 +58,43 @@
             
             width: 100%;
             margin: 10px 0;
-
-            &:hover {
-                cursor: pointer;
-            }
+            
             
             img {
                 
                 width: 100%;
             }
             
+        }
+
+        &--likes{
+            display: flex;
+            padding: 0 10px;
+            margin: 5px 0;
+            padding: 0 15px;
+
+
+            img {
+                width: 25px;
+
+                &:hover{
+
+                    cursor: pointer;
+                }
+            }
+
+
+        }
+
+        &--likes1{
+            display: flex;
+            color: $color-gray;
+            font-weight: 600;
+            padding: 0 15px;
+
+            p{
+                margin-left: 5px;               
+            }
         }
 
         &--caption {
@@ -82,13 +109,14 @@
                 font-weight: 600;            
                 font-size: 14px;
                 padding: 5px;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
             
-            span {
-                
-                padding: 5px;
+            span {              
                 font-size: 14px;
-
             }
             
         }
@@ -99,8 +127,5 @@
             font-size: 12px;
             color: $color-gray;
         }
-
-
-
     }
 }

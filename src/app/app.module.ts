@@ -3,12 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutComponent } from './pages/about/about.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './core/services/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
-import { ActivityComponent } from './pages/activity/activity.component';
 import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptors';
 import { GallerydetailsComponent } from './core/components/profileuser/galleryprofile/gallerydetails/gallerydetails.component';
 import { PostspageComponent } from './pages/postspage/postspage.component';
@@ -24,11 +23,11 @@ import { PostsComponent } from './core/components/posts/posts.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutComponent, 
-    NavigationComponent,    
-    ActivityComponent,    
-    GallerydetailsComponent, PostspageComponent, PostsComponent,    
+    AppComponent,  
+    NavigationComponent,        
+    GallerydetailsComponent, 
+    PostspageComponent, 
+    PostsComponent,    
      
    
   ],

@@ -1,24 +1,38 @@
 <app-header></app-header>
-<div *ngIf="posts" class="c-home">
-
-    <div class="c-home__container" *ngFor="let post of posts">
-
+<div *ngIf="posts$" class="c-home">
+    
+    <div class="c-home__container" *ngFor="let post of posts$ ">
+        
         <div class="c-home__container--user">
-            <div   class="c-home__container--user--img">
-                <img  [routerLink]="['/user', post.userId.username]" src="{{post.userId.image}}" alt="{{post.caption}}" id="{{post.userId.username}}">
-            </div>        
-           <a [routerLink]="['/user', post.userId.username]"><p >{{post.userId.username}}</p></a>                 
-        </div> 
-
-        <div class="c-home__container--img">
-            <img src="{{post.image}}" alt="{{post.userId.name}}">
+            <div class="c-home__container--user--img">
+                <img [routerLink]="['/user', post.userId.username]" src="{{post.userId.image}}" alt="{{post.caption}}"
+                id="{{post.userId.username}}">
+            </div>
+            <a [routerLink]="['/user', post.userId.username]">
+                <p>{{post.userId.username}}</p>
+            </a>
+        </div>   
+        
+        <div  class="c-home__container--img">
+            <img  src="{{post.image}}" alt="{{post.userId.name}}">
+        </div>
+        
+        <div class="c-home__container--likes">
+            <img  (click)="like(post._id, post.likeByUser)"
+            src="{{post.likeByUser ? 'https://i.ibb.co/qWLGNqD/like-1.png' : 'https://i.ibb.co/xCSQrjd/like.png'}}"
+            alt="like icon">
+        </div>
+        
+        <div class="c-home__container--likes1">
+            <span>{{post.likes.length}}</span>
+            <p>Me gusta</p>
         </div>
         
         <div class="c-home__container--caption">
-            <p [routerLink]="['/user', post.userId.username]">{{post.userId.username}}</p> 
-            <span>{{post.caption}}</span>            
+            <p [routerLink]="['/user', post.userId.username]">{{post.userId.username}}</p>
+            <span>{{post.caption}}</span>
         </div>
-        <time>{{post.createdAt}} </time>           
+        <time>{{post.createdAt}} </time>
     </div>
-
+    
 </div>

@@ -1,5 +1,5 @@
 <ng-template #onboarding>
     <app-onboarding #onboarding></app-onboarding>    
 </ng-template>
-<app-home *ngIf="this.userService.isLoggedIn; else onboarding " ></app-home>
+<app-home *ngIf="this.userService.isLoggedIn; else onboarding " [dataUser]="dataUser"></app-home>
 
